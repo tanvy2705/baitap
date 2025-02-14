@@ -4,7 +4,7 @@ public class main44 {
         System.out.println(p1.toString());
         MovablePoint m1 = new MovablePoint(1.1f,1.2f);
         System.out.println(m1.toString());
-        System.out.println(m1.move());
+        System.out.println(m1);
 
     }
 }
