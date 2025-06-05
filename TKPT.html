@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thời kỳ Pháp thuộc tại Việt Nam</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .hero-section {
+            background-color: #f9e7c0;
+            padding: 80px 0;
+            margin-bottom: 30px;
+        }
+        .section-title {
+            border-left: 5px solid #8b4513;
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+        .timeline-item {
+            border-left: 3px solid #8b4513;
+            padding-left: 20px;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 0;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background-color: #8b4513;
+        }
+        .card {
+            border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 20px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        .nav-pills .nav-link.active {
+            background-color: #8b4513;
+        }
+        .nav-pills .nav-link {
+            color: #8b4513;
+        }
+        footer {
+            background-color: #3d2b1f;
+            color: white;
+            padding: 30px 0;
+        }
+        .sepia-image {
+            filter: sepia(30%);
+        }
+        .rounded-custom {
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Thời kỳ Pháp thuộc</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="gioi-thieu.html">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="khoahoc.html">Khóa Học </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="thoi-ky-lich-su.html">Thời Kỳ Lịch Sử </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="CMT8.html">Cách Mạng Tháng 8</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">Thời kỳ Pháp thuộc tại Việt Nam</h1>
+            <p class="lead">Tìm hiểu về giai đoạn lịch sử từ 1858 đến 1954 khi Việt Nam dưới sự cai trị của thực dân Pháp</p>
+            <button class="btn btn-dark mt-3" data-bs-toggle="modal" data-bs-target="#introModal">
+                <i class="fas fa-play-circle me-2"></i>Xem giới thiệu
+            </button>
+        </div>
+    </div>
+
+    <!-- Introduction Section -->
+    <section id="gioi-thieu" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Giới thiệu tổng quan</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>Thời kỳ Pháp thuộc là giai đoạn lịch sử Việt Nam từ năm 1858 đến năm 1954, khi quốc gia này nằm dưới sự cai trị của Đế quốc Pháp. Giai đoạn này bắt đầu với cuộc tấn công của Pháp vào Đà Nẵng (1858) và kết thúc sau thất bại của Pháp tại chiến dịch Điện Biên Phủ (1954).</p>
+                    <p>Trong gần một thế kỷ cai trị, thực dân Pháp đã tạo nên nhiều thay đổi sâu sắc về chính trị, kinh tế, văn hóa và xã hội tại Việt Nam. Mặc dù là thời kỳ đầy biến động và đau thương cho dân tộc Việt Nam, nhưng cũng là giai đoạn hình thành nhiều đặc điểm của xã hội Việt Nam hiện đại.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <img src="https://scontent.fdad3-5.fna.fbcdn.net/v/t39.30808-6/484189768_1791312858099533_1146922264608030485_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=0b6b33&_nc_eui2=AeGS5VfqbvA3vPPGoQN3tfX6N1liv6vZTLo3WWK_q9lMuuSZE6XGH12JE6z6HiuDJ2_YQNmCONornkkRKxvQbWea&_nc_ohc=-k2kuwMw8XcQ7kNvwF-HxO3&_nc_oc=AdkiaK2kRkSeL9rr6KPCfutt8xVhHGvBbaJe1GJziZ4SaIxLkxDYPUncGMLi2RNWP0Q&_nc_zt=23&_nc_ht=scontent.fdad3-5.fna&_nc_gid=VbpEf8PRYGPWOUu20_TNyg&oh=00_AfIRc2YIdzurRKzFbLHK-id975GNM5Wzdb9Wu0BTd3bMUA&oe=682C69AC" alt="Bản đồ Đông Dương thời Pháp thuộc" class="card-img-top sepia-image">
+                        <div class="card-body">
+                            <h5 class="card-title">Đông Dương thuộc Pháp</h5>
+                            <p class="card-text">Bản đồ Liên bang Đông Dương thời thuộc Pháp, bao gồm các vùng: Bắc Kỳ, Trung Kỳ, Nam Kỳ (Việt Nam), Campuchia và Lào.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Historical Process Section -->
+    <section id="qua-trinh" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Quá trình xâm lược và đô hộ</h2>
+            
+            <div class="timeline-item">
+                <h4>1858-1884: Từ xâm lược đến chiếm đóng</h4>
+                <p>Ngày 1/9/1858, liên quân Pháp-Tây Ban Nha tấn công Đà Nẵng, mở đầu cuộc xâm lược của thực dân Pháp. Sau đó, họ chiếm Nam Kỳ, buộc triều đình Huế ký hiệp ước Nhâm Tuất (1862) và Giáp Tuất (1874), từng bước mở rộng kiểm soát cả ba miền Việt Nam.</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card">
+                            <img src="https://sohanews.sohacdn.com/2019/1/31/photo-1-1548944224110428365062.jpg" alt="Quân Pháp tấn công Đà Nẵng" class="card-img-top sepia-image">
+                            <div class="card-body">
+                                <p class="card-text">Hình ảnh quân đội Pháp trong cuộc tấn công vào Đà Nẵng năm 1858.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Treaty_of_Saigon_1862.jpg/500px-Treaty_of_Saigon_1862.jpg" alt="Ký hiệp ước Nhâm Tuất" class="card-img-top sepia-image">
+                            <div class="card-body">
+                                <p class="card-text">Hiệp ước Nhâm Tuất (1862) buộc triều đình nhà Nguyễn nhượng 3 tỉnh miền Đông Nam Kỳ cho Pháp.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>1885-1896: Thiết lập hệ thống cai trị</h4>
+                <p>Sau Hiệp ước Patenôtre (1884), Pháp thiết lập chế độ bảo hộ trên cả nước. Nam Kỳ trở thành thuộc địa trực tiếp, Bắc Kỳ và Trung Kỳ là xứ bảo hộ. Năm 1887, Liên bang Đông Dương được thành lập, bao gồm Việt Nam, Lào và Campuchia, đặt dưới quyền Toàn quyền Đông Dương.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>1897-1945: Thời kỳ cai trị và khai thác</h4>
+                <p>Pháp tiến hành chính sách khai thác thuộc địa 3 lần, tập trung vào các lĩnh vực nông nghiệp (đồn điền cao su, mỏ than), công nghiệp, thương mại và giao thông. Thời kỳ này cũng chứng kiến nhiều cuộc khởi nghĩa chống Pháp như Yên Thế, Thái Nguyên, và sự ra đời của các phong trào cách mạng.</p>
+            </div>
+            
+            <div class="timeline-item">
+                <h4>1945-1954: Sự sụp đổ của chế độ thực dân</h4>
+                <p>Sau Cách mạng Tháng Tám 1945, Việt Nam tuyên bố độc lập. Pháp quay trở lại tái chiếm Đông Dương, gây ra cuộc chiến kéo dài 9 năm. Thất bại tại Điện Biên Phủ (7/5/1954) và Hiệp định Genève (7/1954) đánh dấu sự kết thúc chế độ thực dân Pháp tại Việt Nam.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Colonial Policies -->
+    <section id="cai-tri" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Chính sách cai trị của thực dân Pháp</h2>
+            
+            <ul class="nav nav-pills mb-4" id="policiesTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="chinh-tri-tab" data-bs-toggle="pill" data-bs-target="#chinh-tri" type="button">Chính trị</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="kinh-te-tab" data-bs-toggle="pill" data-bs-target="#kinh-te" type="button">Kinh tế</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="van-hoa-tab" data-bs-toggle="pill" data-bs-target="#van-hoa" type="button">Văn hóa - Giáo dục</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="xa-hoi-tab" data-bs-toggle="pill" data-bs-target="#xa-hoi" type="button">Xã hội</button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="policiesTabContent">
+                <div class="tab-pane fade show active" id="chinh-tri" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Chia để trị</h4>
+                            <p>Pháp chia Việt Nam thành 3 kỳ với 3 chế độ cai trị khác nhau:</p>
+                            <ul>
+                                <li><strong>Nam Kỳ:</strong> Thuộc địa trực tiếp, do Thống đốc Nam Kỳ cai quản trực tiếp</li>
+                                <li><strong>Trung Kỳ:</strong> Xứ bảo hộ, giữ lại triều đình nhà Nguyễn nhưng quyền lực thực sự thuộc về Khâm sứ Pháp</li>
+                                <li><strong>Bắc Kỳ:</strong> Xứ bảo hộ, do Thống sứ Bắc Kỳ cai quản</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Bộ máy hành chính</h4>
+                            <p>Toàn bộ hệ thống cai trị đặt dưới quyền của Toàn quyền Đông Dương đóng tại Hà Nội. Pháp duy trì một số cơ cấu hành chính cũ nhưng đặt quan lại người Pháp kiểm soát các vị trí then chốt.</p>
+                            <p>Chính quyền thuộc địa ban hành các đạo luật riêng, khác biệt giữa người Pháp và người bản xứ, nhằm củng cố quyền lực và bảo vệ lợi ích của thực dân.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="kinh-te" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <h4>Chính sách khai thác thuộc địa</h4>
+                            <p>Pháp đã tiến hành 3 cuộc khai thác thuộc địa ở Đông Dương:</p>
+                            <ul>
+                                <li><strong>Khai thác lần 1 (1897-1914):</strong> Tập trung vào phát triển đồn điền cao su, khai thác than, xây dựng cơ sở hạ tầng ban đầu</li>
+                                <li><strong>Khai thác lần 2 (1919-1929):</strong> Đẩy mạnh công nghiệp, mở rộng đồn điền, phát triển đường sắt và cảng biển</li>
+                                <li><strong>Khai thác lần 3 (1930-1945):</strong> Khắc phục khủng hoảng kinh tế, chuyển hướng khai thác sang phục vụ chiến tranh</li>
+                            </ul>
+                            <p>Hoạt động kinh tế chủ yếu phục vụ lợi ích của Pháp, biến Việt Nam thành thị trường tiêu thụ hàng hóa và nguồn cung cấp nguyên liệu thô.</p>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="card">
+                                <img src="/api/placeholder/600/400" alt="Đồn điền cao su thời Pháp thuộc" class="card-img-top sepia-image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Đồn điền cao su</h5>
+                                    <p class="card-text">Đồn điền cao su là một trong những ngành kinh tế quan trọng được Pháp phát triển tại Nam Kỳ.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <h4>Hệ thống thuế khóa</h4>
+                            <p>Chính quyền thực dân áp đặt nhiều loại thuế nặng nề lên người dân Việt Nam, bao gồm:</p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Thuế thân</li>
+                                        <li>Thuế điền thổ</li>
+                                        <li>Thuế muối</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Thuế rượu</li>
+                                        <li>Thuế thuốc phiện</li>
+                                        <li>Các loại thuế gián thu khác</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="van-hoa" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Chính sách văn hóa và ngôn ngữ</h4>
+                            <p>Pháp tiến hành "Pháp hóa" nền văn hóa Việt Nam thông qua:</p>
+                            <ul>
+                                <li>Phát triển chữ Quốc ngữ thay thế chữ Hán và chữ Nôm</li>
+                                <li>Đưa tiếng Pháp vào giảng dạy và hành chính</li>
+                                <li>Truyền bá văn hóa và lối sống phương Tây</li>
+                                <li>Du nhập các trào lưu văn học, nghệ thuật mới</li>
+                            </ul>
+                            <p>Mặc dù với mục đích đồng hóa, những thay đổi này vô tình tạo điều kiện cho sự phát triển của chữ Quốc ngữ, một công cụ quan trọng trong việc truyền bá tư tưởng cách mạng sau này.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Hệ thống giáo dục</h4>
+                            <p>Pháp xây dựng hệ thống giáo dục mới thay thế giáo dục Nho học truyền thống:</p>
+                            <ul>
+                                <li>Hệ thống trường Pháp-Việt với chương trình học theo kiểu Pháp</li>
+                                <li>Thành lập các trường chuyên nghiệp: Y khoa, Luật, Mỹ thuật...</li>
+                                <li>Đào tạo một tầng lớp tinh hoa thân Pháp</li>
+                                <li>Cơ hội giáo dục chỉ dành cho thiểu số, đa số dân chúng không được học hành</li>
+                            </ul>
+                            <p>Năm 1906, trường Đông Dương Đại học (tiền thân của Đại học Quốc gia Hà Nội) được thành lập, đánh dấu bước phát triển quan trọng trong lịch sử giáo dục Việt Nam.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="xa-hoi" role="tabpanel">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4>Cơ cấu xã hội thời Pháp thuộc</h4>
+                            <p>Dưới thời Pháp thuộc, xã hội Việt Nam phân hóa sâu sắc thành nhiều tầng lớp:</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tầng lớp thống trị</h5>
+                                    <ul>
+                                        <li>Người Pháp: quan chức, chủ đồn điền, doanh nhân</li>
+                                        <li>Địa chủ lớn hợp tác với Pháp</li>
+                                        <li>Tư sản mại bản</li>
+                                        <li>Quan lại phong kiến thân Pháp</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tầng lớp trung gian</h5>
+                                    <ul>
+                                        <li>Tư sản dân tộc</li>
+                                        <li>Tiểu tư sản trí thức</li>
+                                        <li>Tiểu chủ, tiểu thương</li>
+                                        <li>Trí thức Tây học</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tầng lớp bị trị</h5>
+                                    <ul>
+                                        <li>Nông dân (chiếm đa số dân số)</li>
+                                        <li>Công nhân (hình thành từ quá trình công nghiệp hóa)</li>
+                                        <li>Người lao động tự do</li>
+                                        <li>Phu đồn điền, phu mỏ</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <p>Thời kỳ này cũng chứng kiến sự ra đời của giai cấp công nhân Việt Nam - một giai cấp mới hình thành từ quá trình công nghiệp hóa, sau này trở thành lực lượng nòng cốt trong phong trào giải phóng dân tộc.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="kien-truc" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Kiến trúc thời Pháp thuộc</h2>
+            <p class="lead mb-5">Một trong những di sản nổi bật của thời kỳ Pháp thuộc là những công trình kiến trúc mang phong cách Pháp và phong cách Đông Dương (kết hợp Pháp-Việt) vẫn còn tồn tại đến ngày nay.</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Notre_dame_saigon.jpg/500px-Notre_dame_saigon.jpg" alt="Nhà thờ Đức Bà" class="card-img-top sepia-image">
+                        <div class="card-body">
+                            <h5 class="card-title">Nhà thờ Đức Bà (1880-1883)</h5>
+                            <p class="card-text">Công trình kiến trúc Gothic nổi tiếng tại Sài Gòn, được xây dựng hoàn toàn bằng vật liệu nhập từ Pháp.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://wyndham-thanhthuy.com/wp-content/uploads/2024/05/nha-hat-lon-ha-noi-2.jpg" alt="Nhà hát lớn Hà Nội" class="card-img-top sepia-image">
+                        <div class="card-body">
+                            <h5 class="card-title">Nhà hát lớn Hà Nội (1901-1911)</h5>
+                            <p class="card-text">Lấy cảm hứng từ Nhà hát Opéra Garnier tại Paris, là biểu tượng của kiến trúc tân cổ điển Pháp tại Việt Nam.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://image.vovworld.vn/w730/uploaded/vovworld/thpsplu/2017_11_13/buudiensaigon_fhdz.jpg" alt="Bưu điện Trung tâm Sài Gòn" class="card-img-top sepia-image">
+                        <div class="card-body">
+                            <h5 class="card-title">Bưu điện Trung tâm Sài Gòn (1886-1891)</h5>
+                            <p class="card-text">Công trình mang phong cách chiết trung, kết hợp nét đặc trưng của kiến trúc châu Âu và châu Á.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-6">
+                    <h4>Đặc điểm kiến trúc thời Pháp</h4>
+                    <ul>
+                        <li>Phong cách chiết trung (Éclectisme) kết hợp nhiều trường phái</li>
+                        <li>Sử dụng vật liệu mới như sắt, thép, bê tông cốt thép</li>
+                        <li>Điều chỉnh thiết kế để phù hợp với khí hậu nhiệt đới</li>
+                        <li>Phong cách Đông Dương: kết hợp kiến trúc Pháp với các yếu tố truyền thống của Việt Nam</li>
+                        <li>Quy hoạch đô thị theo mô hình phương Tây với đại lộ rộng, công viên, quảng trường</li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <h4>Các khu vực kiến trúc nổi bật</h4>
+                    <ul>
+                        <li><strong>Hà Nội:</strong> Khu phố Pháp, Khu Ba Đình, 36 phố phường</li>
+                        <li><strong>Sài Gòn:</strong> Trung tâm hành chính, Khu Bến Nghé, Chợ Lớn</li>
+                        <li><strong>Huế:</strong> Các công trình kết hợp kiến trúc hoàng gia và Pháp</li>
+                        <li><strong>Đà Lạt:</strong> Thành phố nghỉ dưỡng với kiến trúc villa Pháp</li>
+                        <li><strong>Hải Phòng:</strong> Khu phố Tây và các công trình hành chính, thương mại</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resistance Section -->
+    <section id="khang-chien" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Phong trào kháng chiến chống Pháp</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Các phong trào đấu tranh tiêu biểu</h4>
+                    <div class="timeline-item">
+                        <h5>1885-1896: Phong trào Cần Vương</h5>
+                        <p>Do vua Hàm Nghi phát động với khẩu hiệu "Cần Vương cứu quốc", tập hợp các sĩ phu yêu nước và nhân dân chống Pháp dưới ngọn cờ phò vua. Các lãnh tụ tiêu biểu: Phan Đình Phùng, Hoàng Hoa Thám, Nguyễn Thiện Thuật.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h5>1905-1908: Phong trào Đông Du</h5>
+                        <p>Do Phan Bội Châu khởi xướng, đưa thanh niên Việt Nam sang Nhật Bản học tập với mục đích đào tạo nhân tài để sau này về nước đấu tranh giành độc lập.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h5>1926-1930: Việt Nam Quốc dân Đảng</h5>
+                        <p>Thành lập năm 1927 do Nguyễn Thái Học lãnh đạo, chủ trương bạo động giành chính quyền. Cuộc khởi nghĩa Yên Bái (1930) thất bại đánh dấu sự suy yếu của phong trào.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h5>1930-1945: Phong trào cách mạng dưới sự lãnh đạo của Đảng Cộng sản</h5>
+                        <p>Đảng Cộng sản Việt Nam thành lập (1930) đã lãnh đạo các phong trào Xô Viết Nghệ Tĩnh, phong trào Dân chủ 1936-1939, Tổng khởi nghĩa Cách mạng Tháng Tám (1945).</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h5>1946-1954: Kháng chiến chống Pháp</h5>
+                        <p>Toàn quốc kháng chiến bùng nổ (19/12/1946), kéo dài 9 năm và kết thúc với chiến thắng Điện Biên Phủ (7/5/1954), buộc Pháp phải ký Hiệp định Genève, chấm dứt sự thống trị của thực dân Pháp tại Việt Nam.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <h4>Các anh hùng tiêu biểu</h4>
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <img src="https://c1hoanghoatham.badinh.edu.vn/UploadFinder/images/C%E1%BB%A4%20HHT.jpg" alt="Hoàng Hoa Thám" class="card-img-top sepia-image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Hoàng Hoa Thám</h5>
+                                    <p class="card-text">Lãnh đạo cuộc khởi nghĩa Yên Thế kéo dài 30 năm (1884-1913) chống lại thực dân Pháp.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <img src="https://huyenvuquang.com/wp-content/uploads/2024/01/image-4.png" alt="Phan Đình Phùng" class="card-img-top sepia-image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Phan Đình Phùng</h5>
+                                    <p class="card-text">Lãnh đạo cuộc khởi nghĩa Hương Khê kéo dài 10 năm (1885-1895) ở Hà Tĩnh.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Phan_Boi_Chau.jpg" alt="Phan Bội Châu" class="card-img-top sepia-image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Phan Bội Châu</h5>
+                                    <p class="card-text">Người sáng lập phong trào Đông Du, tác giả "Việt Nam vong quốc sử" và nhiều tác phẩm yêu nước khác.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-4">
+                            <div class="card">
+                                <img src="https://baotanglichsuquocgia.vn/DataFiles/Uploaded/image/data%20Hung/thang%201%20nam%202017/nguyen%20thai%20hoc/1.jpg" alt="Nguyễn Thái Học" class="card-img-top sepia-image">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nguyễn Thái Học</h5>
+                                    <p class="card-text">Người sáng lập Việt Nam Quốc dân Đảng, lãnh đạo cuộc khởi nghĩa Yên Bái năm 1930.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="tac-dong" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Tác động của thời kỳ Pháp thuộc</h2>
+            <div class="row">
+                <div class="col-md-12 mb-4">
+                    <p class="lead">Gần một thế kỷ cai trị của thực dân Pháp đã để lại nhiều dấu ấn sâu đậm trên mọi mặt của xã hội Việt Nam, với cả những tác động tiêu cực và tích cực.</p>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="card mb-4 rounded-custom">
+                        <div class="card-header bg-danger text-white">
+                            <h4 class="mb-0">Tác động tiêu cực</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Chính trị:</strong> Mất chủ quyền dân tộc, cơ cấu xã hội phong kiến bị phá vỡ nhưng không hoàn toàn thay thế bằng cơ cấu mới</li>
+                                <li><strong>Kinh tế:</strong> Nền kinh tế bị bóp méo, phụ thuộc, mất cân đối; tài nguyên bị khai thác cạn kiệt</li>
+                                <li><strong>Xã hội:</strong> Phân hóa sâu sắc, đại đa số nhân dân sống trong cảnh nghèo khổ</li>
+                                <li><strong>Văn hóa:</strong> Nhiều giá trị truyền thống bị xói mòn, văn hóa dân tộc bị ảnh hưởng nặng nề</li>
+                                <li><strong>Dân tộc:</strong> Chính sách chia để trị làm suy yếu tinh thần đoàn kết</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card mb-4 rounded-custom">
+                        <div class="card-header bg-success text-white">
+                            <h4 class="mb-0">Tác động tích cực (không chủ ý)</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Kinh tế:</strong> Hình thành cơ sở hạ tầng hiện đại (đường sắt, cầu, cảng, hệ thống thủy lợi); manh nha công nghiệp hóa</li>
+                                <li><strong>Văn hóa:</strong> Phát triển chữ Quốc ngữ, tiếp xúc với nền văn minh phương Tây</li>
+                                <li><strong>Giáo dục:</strong> Hình thành hệ thống giáo dục hiện đại, đào tạo đội ngũ trí thức mới</li>
+                                <li><strong>Đô thị hóa:</strong> Phát triển các đô thị theo quy hoạch hiện đại</li>
+                                <li><strong>Ý thức dân tộc:</strong> Thúc đẩy tinh thần dân tộc, ý thức độc lập và phong trào cách mạng</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-12">
+                    <div class="card rounded-custom">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0">Di sản còn lại đến ngày nay</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Các công trình kiến trúc và quy hoạch đô thị</li>
+                                        <li>Cơ sở hạ tầng: đường sắt, cầu cống, hệ thống thủy lợi</li>
+                                        <li>Hệ thống hành chính, pháp luật (một phần)</li>
+                                        <li>Chữ Quốc ngữ trở thành chữ viết chính thức</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <ul>
+                                        <li>Ảnh hưởng trong giáo dục và khoa học</li>
+                                        <li>Văn hóa ẩm thực và cách sống (đặc biệt ở đô thị)</li>
+                                        <li>Một số ngành công nghiệp manh nha từ thời Pháp</li>
+                                        <li>Tác phẩm văn học, nghệ thuật của giai đoạn này</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Về trang web</h5>
+                    <p>Trang web này cung cấp thông tin khách quan về thời kỳ Pháp thuộc tại Việt Nam (1858-1954), nhằm mục đích giáo dục và nghiên cứu lịch sử.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Liên kết hữu ích</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Bảo tàng Lịch sử Việt Nam</a></li>
+                        <li><a href="#" class="text-white">Viện Sử học Việt Nam</a></li>
+                        <li><a href="#" class="text-white">Thư viện Quốc gia Việt Nam</a></li>
+                        <li><a href="#" class="text-white">Trung tâm Lưu trữ Quốc gia</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Thông tin liên hệ</h5>
+                    <address class="mb-3">
+                        <i class="fas fa-map-marker-alt me-2"></i> 55 Đường Nguyễn Trãi, Hà Nội<br>
+                        <i class="fas fa-phone me-2"></i> (024) 3943-6789<br>
+                        <i class="fas fa-envelope me-2"></i> info@lichsuvietnam.vn
+                    </address>
+                    <div class="social-icons">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4 bg-light">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p class="mb-0">© 2025 Lịch Sử Việt Nam | Bản quyền thuộc về Ban biên tập</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="introModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Giới thiệu về Thời kỳ Pháp thuộc</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="ratio ratio-16x9">
+                        <img src="/api/placeholder/800/450" alt="Hình ảnh thời Pháp thuộc" class="img-fluid sepia-image">
+                    </div>
+                    <div class="mt-4">
+                        <p>Thời kỳ Pháp thuộc là một giai đoạn lịch sử quan trọng trong tiến trình phát triển của dân tộc Việt Nam. Đây là thời kỳ Việt Nam bị đặt dưới ách đô hộ của thực dân Pháp, từ cuộc tấn công vào Đà Nẵng năm 1858 đến chiến thắng Điện Biên Phủ và Hiệp định Geneva năm 1954.</p>
+                        <p>Mặc dù đây là giai đoạn đầy đau thương và mất mát, nhưng cũng là thời kỳ hình thành nhiều nét đặc trưng của xã hội Việt Nam hiện đại: từ kiến trúc đô thị, hệ thống hành chính, giáo dục cho đến những phong trào đấu tranh giải phóng dân tộc.</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                    <a href="#qua-trinh" class="btn btn-primary" data-bs-dismiss="modal">Tìm hiểu thêm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Enable all tooltips
+        document.addEventListener('DOMContentLoaded', function() {
+            var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+            var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+                return new bootstrap.Tooltip(tooltipTriggerEl)
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trắc Nghiệm Lịch Sử - Lịch Sử Việt Nam</title>
+    <style>
+        /* CSS cho trang trắc nghiệm */
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        header h1 {
+            color: #8b4513;
+        }
+        
+        .quiz-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f5deb3;
+        }
+        
+        .question h3 {
+            color: #8b4513;
+            margin-bottom: 15px;
+        }
+        
+        .options {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .options li {
+            margin-bottom: 10px;
+        }
+        
+        .options label {
+            display: block;
+            padding: 10px;
+            background-color: #f9f5e9;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .options label:hover {
+            background-color: #f5deb3;
+        }
+        
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .submit-btn {
+            background-color: #8b4513;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 20px 0;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 20px auto;
+        }
+        
+        .submit-btn:hover {
+            background-color: #654321;
+        }
+        
+        .result {
+            display: none;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .score {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .certificate {
+            display: none;
+            background-color: #fdfbf7;
+            border: 5px solid #8b4513;
+            padding: 30px;
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+            position: relative;
+        }
+        
+        .certificate-header {
+            font-size: 2rem;
+            color: #8b4513;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .certificate-body {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .certificate-seal {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #8b4513;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: bold;
+            color: #8b4513;
+        }
+        
+        .correct {
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+        
+        .incorrect {
+            background-color: #f2dede;
+            border-color: #ebccd1;
+        }
+        
+        .review-answers {
+            margin-top: 30px;
+        }
+        
+        .review-answers h3 {
+            color: #8b4513;
+            margin-bottom: 15px;
+        }
+        
+        .review-question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        
+        .user-answer {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .user-answer.correct {
+            color: #3c763d;
+        }
+        
+        .user-answer.incorrect {
+            color: #a94442;
+        }
+        
+        .correct-answer {
+            margin-top: 5px;
+            color: #3c763d;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+   
+             <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="site-title">LỊCH SỬ VIỆT NAM</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="gioi-thieu.html" class="active">Giới thiệu</a></li>
+                    <li><a href="thoi-ky-lich-su.html" class="active">Thời kỳ lịch sử</a></li>
+                    <li><a href="trac-nghiem.html">Trắc nghiệm</a></li> 
+                    <h1>Trắc Nghiệm Lịch Sử Dân Tộc Việt Nam</h1>
+            <p>Hãy trả lời các câu hỏi sau đây để kiểm tra kiến thức của bạn về lịch sử dân tộc Việt Nam.</p>
+                </ul>
+            </nav>
+        </div>
+            </header>
+
+        <div class="quiz-container">
+            <form id="quiz-form">
+                <div class="question" id="q1">
+                    <h3>Câu 1: Nhà nước Văn Lang được thành lập vào khoảng thời gian nào?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q1" value="a"> a) Thế kỷ 7 trước Công nguyên
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q1" value="b"> b) Thế kỷ 10 trước Công nguyên
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q1" value="c"> c) Khoảng thế kỷ 7 đến thế kỷ 6 trước Công nguyên
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q1" value="d"> d) Thế kỷ 3 trước Công nguyên
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q2">
+                    <h3>Câu 2: Ai là vị vua cuối cùng của nhà nước Văn Lang?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q2" value="a"> a) Hùng Vương thứ 18
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q2" value="b"> b) An Dương Vương
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q2" value="c"> c) Triệu Đà
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q2" value="d"> d) Lạc Long Quân
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q3">
+                    <h3>Câu 3: Cuộc khởi nghĩa nào mở đầu cho cuộc kháng chiến chống quân Hán của nhân dân ta?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q3" value="a"> a) Khởi nghĩa Lý Bí
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q3" value="b"> b) Khởi nghĩa Hai Bà Trưng
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q3" value="c"> c) Khởi nghĩa Bà Triệu
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q3" value="d"> d) Khởi nghĩa Lam Sơn
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q4">
+                    <h3>Câu 4: Nhà nước Đại Cồ Việt được thành lập vào năm nào?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q4" value="a"> a) 938
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q4" value="b"> b) 939
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q4" value="c"> c) 968
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q4" value="d"> d) 1009
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q5">
+                    <h3>Câu 5: Ai là người đã đánh bại quân Nam Hán trên sông Bạch Đằng năm 938?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q5" value="a"> a) Lê Hoàn
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q5" value="b"> b) Ngô Quyền
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q5" value="c"> c) Đinh Bộ Lĩnh
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q5" value="d"> d) Lý Thường Kiệt
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q6">
+                    <h3>Câu 6: Trận Bạch Đằng năm 1288 là chiến thắng của quân dân Đại Việt trước quân xâm lược nào?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q6" value="a"> a) Quân Tống
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q6" value="b"> b) Quân Mông - Nguyên
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q6" value="c"> c) Quân Minh
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q6" value="d"> d) Quân Thanh
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q7">
+                    <h3>Câu 7: Ai là người đã dời đô từ Hoa Lư về Thăng Long (Hà Nội ngày nay)?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q7" value="a"> a) Lý Công Uẩn
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q7" value="b"> b) Lý Thái Tổ
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q7" value="c"> c) Lý Thái Tông
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q7" value="d"> d) Cả a và b đều đúng
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q8">
+                    <h3>Câu 8: Năm 1076, dưới triều đại nào, nhà nước Đại Việt đã đổi tên nước thành Đại Việt?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q8" value="a"> a) Nhà Đinh
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q8" value="b"> b) Nhà Tiền Lê
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q8" value="c"> c) Nhà Lý
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q8" value="d"> d) Nhà Trần
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q9">
+                    <h3>Câu 9: Vị vua nào đã ba lần đánh thắng quân Mông - Nguyên?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q9" value="a"> a) Lý Thường Kiệt
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q9" value="b"> b) Trần Nhân Tông
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q9" value="c"> c) Trần Hưng Đạo
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q9" value="d"> d) Trần Thái Tông
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q10">
+                    <h3>Câu 10: "Hịch tướng sĩ" là tác phẩm của ai?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q10" value="a"> a) Trần Quốc Tuấn (Trần Hưng Đạo)
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q10" value="b"> b) Nguyễn Trãi
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q10" value="c"> c) Lê Lợi
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q10" value="d"> d) Quang Trung
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q11">
+                    <h3>Câu 11: Cuộc khởi nghĩa Lam Sơn do ai lãnh đạo?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q11" value="a"> a) Lê Lợi
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q11" value="b"> b) Nguyễn Huệ
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q11" value="c"> c) Lý Thường Kiệt
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q11" value="d"> d) Nguyễn Trãi
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q12">
+                    <h3>Câu 12: "Bình Ngô đại cáo" là tác phẩm của ai?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q12" value="a"> a) Lê Lợi
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q12" value="b"> b) Nguyễn Trãi
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q12" value="c"> c) Trần Hưng Đạo
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q12" value="d"> d) Nguyễn Du
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q13">
+                    <h3>Câu 13: Chiến thắng Đống Đa diễn ra vào năm nào?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q13" value="a"> a) 1785
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q13" value="b"> b) 1788
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q13" value="c"> c) 1789
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q13" value="d"> d) 1802
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q14">
+                    <h3>Câu 14: Ai là người sáng lập ra nhà Nguyễn - triều đại phong kiến cuối cùng của Việt Nam?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q14" value="a"> a) Nguyễn Ánh (Gia Long)
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q14" value="b"> b) Nguyễn Huệ (Quang Trung)
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q14" value="c"> c) Nguyễn Hoàng
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q14" value="d"> d) Nguyễn Kim
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q15">
+                    <h3>Câu 15: Hiệp ước Patơnốt được ký kết vào năm nào?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q15" value="a"> a) 1858
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q15" value="b"> b) 1862
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q15" value="c"> c) 1874
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q15" value="d"> d) 1884
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q16">
+                    <h3>Câu 16: Ai là người sáng lập ra Việt Nam Quốc Dân Đảng (VNQDĐ)?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q16" value="a"> a) Phan Bội Châu
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q16" value="b"> b) Phan Chu Trinh
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q16" value="c"> c) Nguyễn Thái Học
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q16" value="d"> d) Hồ Chí Minh
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q17">
+                    <h3>Câu 17: Đảng Cộng sản Việt Nam được thành lập vào ngày, tháng, năm nào?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q17" value="a"> a) 3/2/1930
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q17" value="b"> b) 3/2/1931
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q17" value="c"> c) 2/9/1945
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q17" value="d"> d) 19/8/1945
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q18">
+                    <h3>Câu 18: Cách mạng Tháng Tám diễn ra vào năm nào?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q18" value="a"> a) 1944
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q18" value="b"> b) 1945
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q18" value="c"> c) 1946
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q18" value="d"> d) 1954
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q19">
+                    <h3>Câu 19: Hiệp định Giơnevơ về Đông Dương được ký kết vào thời gian nào?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q19" value="a"> a) 7/5/1954
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q19" value="b"> b) 21/7/1954
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q19" value="c"> c) 2/9/1969
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q19" value="d"> d) 27/1/1973
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="question" id="q20">
+                    <h3>Câu 20: Chiến dịch Hồ Chí Minh kết thúc vào ngày nào?</h3>
+                    <ul class="options">
+                        <li>
+                            <label>
+                                <input type="radio" name="q20" value="a"> a) 27/1/1973
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q20" value="b"> b) 30/4/1975
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q20" value="c"> c) 2/7/1976
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="q20" value="d"> d) 2/9/1975
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+
+                <button type="button" class="submit-btn" id="submit-quiz">Nộp Bài</button>
+            </form>
+        </div>
+
+        <div class="result" id="result">
+            <div class="score" id="score"></div>
+            <button class="submit-btn" id="review-btn">Xem lại câu trả lời</button>
+        </div>
+
+        <div class="certificate" id="certificate">
+            <div class="certificate-header">Giấy Khen</div>
+            <div class="certificate-seal">VH</div>
+            <div class="certificate-body">
+                <p>Chứng nhận</p>
+                <h2 id="user-name">Học sinh</h2>
+                <p>Đã hoàn thành xuất sắc bài kiểm tra kiến thức</p>
+                <h3>Lịch Sử Dân Tộc Việt Nam</h3>
+                <p>với số điểm: <span id="certificate-score"></span>/20</p>
+                <p>Chúc mừng bạn đã thể hiện hiểu biết sâu sắc về lịch sử và văn hóa dân tộc!</p>
+                <p class="date">Ngày <span id="current-date"></span></p>
+            </div>
+        </div>
+
+        <div class="review-answers" id="review-answers" style="display: none;">
+            <h3>Kết quả chi tiết</h3>
+            <div id="answers-container"></div>
+            <button class="submit-btn" id="back-btn">Quay lại</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const correctAnswers = {
+                'q1': 'c',
+                'q2': 'a',
+                'q3': 'b',
+                'q4': 'c',
+                'q5': 'b',
+                'q6': 'b',
+                'q7': 'd',
+                'q8': 'c',
+                'q9': 'b',
+                'q10': 'a',
+                'q11': 'a',
+                'q12': 'b',
+                'q13': 'c',
+                'q14': 'a',
+                'q15': 'd',
+                'q16': 'c',
+                'q17': 'a',
+                'q18': 'b',
+                'q19': 'b',
+                'q20': 'b'
+            };
+
+            const answerTexts = {
+                'q1': {
+                    'a': 'Thế kỷ 7 trước Công nguyên',
+                    'b': 'Thế kỷ 10 trước Công nguyên',
+                    'c': 'Khoảng thế kỷ 7 đến thế kỷ 6 trước Công nguyên',
+                    'd': 'Thế kỷ 3 trước Công nguyên'
+                },
+                'q2': {
+                    'a': 'Hùng Vương thứ 18',
+                    'b': 'An Dương Vương',
+                    'c': 'Triệu Đà',
+                    'd': 'Lạc Long Quân'
+                },
+                'q3': {
+                    'a': 'Khởi nghĩa Lý Bí',
+                    'b': 'Khởi nghĩa Hai Bà Trưng',
+                    'c': 'Khởi nghĩa Bà Triệu',
+                    'd': 'Khởi nghĩa Lam Sơn'
+                },
+                'q4': {
+                    'a': '938',
+                    'b': '939',
+                    'c': '968',
+                    'd': '1009'
+                },
+                'q5': {
+                    'a': 'Lê Hoàn',
+                    'b': 'Ngô Quyền',
+                    'c': 'Đinh Bộ Lĩnh',
+                    'd': 'Lý Thường Kiệt'
+                },
+                'q6': {
+                    'a': 'Quân Tống',
+                    'b': 'Quân Mông - Nguyên',
+                    'c': 'Quân Minh',
+                    'd': 'Quân Thanh'
+                },
+                'q7': {
+                    'a': 'Lý Công Uẩn',
+                    'b': 'Lý Thái Tổ',
+                    'c': 'Lý Thái Tông',
+                    'd': 'Cả a và b đều đúng'
+                },
+                'q8': {
+                    'a': 'Nhà Đinh',
+                    'b': 'Nhà Tiền Lê',
+                    'c': 'Nhà Lý',
+                    'd': 'Nhà Trần'
+                },
+                'q9': {
+                    'a': 'Lý Thường Kiệt',
+                    'b': 'Trần Nhân Tông',
+                    'c': 'Trần Hưng Đạo',
+                    'd': 'Trần Thái Tông'
+                },
+                'q10': {
+                    'a': 'Trần Quốc Tuấn (Trần Hưng Đạo)',
+                    'b': 'Nguyễn Trãi',
+                    'c': 'Lê Lợi',
+                    'd': 'Quang Trung'
+                },
+                'q11': {
+                    'a': 'Lê Lợi',
+                    'b': 'Nguyễn Huệ',
+                    'c': 'Lý Thường Kiệt',
+                    'd': 'Nguyễn Trãi'
+                },
+                'q12': {
+                    'a': 'Lê Lợi',
+                    'b': 'Nguyễn Trãi',
+                    'c': 'Trần Hưng Đạo',
+                    'd': 'Nguyễn Du'
+                },
+                'q13': {
+                    'a': '1785',
+                    'b': '1788',
+                    'c': '1789',
+                    'd': '1802'
+                },
+                'q14': {
+                    'a': 'Nguyễn Ánh (Gia Long)',
+                    'b': 'Nguyễn Huệ (Quang Trung)',
+                    'c': 'Nguyễn Hoàng',
+                    'd': 'Nguyễn Kim'
+                },
+                'q15': {
+                    'a': '1858',
+                    'b': '1862',
+                    'c': '1874',
+                    'd': '1884'
+                },
+                'q16': {
+                    'a': 'Phan Bội Châu',
+                    'b': 'Phan Chu Trinh',
+                    'c': 'Nguyễn Thái Học',
+                    'd': 'Hồ Chí Minh'
+                },
+                'q17': {
+                    'a': '3/2/1930',
+                    'b': '3/2/1931',
+                    'c': '2/9/1945',
+                    'd': '19/8/1945'
+                },
+                'q18': {
+                    'a': '1944',
+                    'b': '1945',
+                    'c': '1946',
+                    'd': '1954'
+                },
+                'q19': {
+                    'a': '7/5/1954',
+                    'b': '21/7/1954',
+                    'c': '2/9/1969',
+                    'd': '27/1/1973'
+                },
+                'q20': {
+                    'a': '27/1/1973',
+                    'b': '30/4/1975',
+                    'c': '2/7/1976',
+                    'd': '2/9/1975'
+                }
+            };
+
+            const submitBtn = document.getElementById('submit-quiz');
+            const reviewBtn = document.getElementById('review-btn');
+            const backBtn = document.getElementById('back-btn');
+            const resultDiv = document.getElementById('result');
+            const scoreDiv = document.getElementById('score');
+            const certificateDiv = document.getElementById('certificate');
+            const certificateScore = document.getElementById('certificate-score');
+            const reviewAnswersDiv = document.getElementById('review-answers');
+            const answersContainer = document.getElementById('answers-container');
+            const currentDateSpan = document.getElementById('current-date');
+
+            // Đặt ngày hiện tại cho giấy khen
+            const today = new Date();
+            const formattedDate = today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
+            currentDateSpan.textContent = formattedDate;
+
+            submitBtn.addEventListener('click', function() {
+                let score = 0;
+                const userAnswers = {};
+                
+                // Lấy câu trả lời của người dùng
+                for (let i = 1; i <= 20; i++) {
+                    const question = 'q' + i;
+                    const selectedOption = document.querySelector(`input[name="${question}"]:checked`);
+                    
+                    if (selectedOption) {
+                        userAnswers[question] = selectedOption.value;
+                        if (selectedOption.value === correctAnswers[question]) {
+                            score++;
+                        }
+                    } else {
+                        userAnswers[question] = null;
+                    }
+                }
+                
+                // Hiển thị kết quả
+                document.querySelector('.quiz-container').style.display = 'none';
+                resultDiv.style.display = 'block';
+                scoreDiv.innerHTML = `Bạn đã trả lời đúng <strong>${score}/20</strong> câu hỏi.`;
+                
+                // Lưu kết quả cho xem lại
+                localStorage.setItem('userAnswers', JSON.stringify(userAnswers));
+                localStorage.setItem('score', score);
+                
+                // Hiển thị giấy khen nếu score >= 18
+                if (score >= 18) {
+                    certificateDiv.style.display = 'block';
+                    certificateScore.textContent = score;
+                    
+                    // Lấy tên người dùng (có thể thay đổi theo nhu cầu)
+                    let userName = localStorage.getItem('userName') || 'Học sinh';
+                    document.getElementById('user-name').textContent = userName;
+                }
+            });
+            
+            reviewBtn.addEventListener('click', function() {
+                resultDiv.style.display = 'none';
+                certificateDiv.style.display = 'none';
+                reviewAnswersDiv.style.display = 'block';
+                
+                // Lấy câu trả lời của người dùng
+                const userAnswers = JSON.parse(localStorage.getItem('userAnswers'));
+                
+                // Xóa nội dung cũ
+                answersContainer.innerHTML = '';
+                
+                // Hiển thị câu trả lời
+                for (let i = 1; i <= 20; i++) {
+                    const question = 'q' + i;
+                    const userAnswer = userAnswers[question];
+                    const isCorrect = userAnswer === correctAnswers[question];
+                    
+                    const questionDiv = document.createElement('div');
+                    questionDiv.className = 'review-question';
+                    
+                    const questionTitle = document.querySelector(`#${question} h3`).textContent;
+                    questionDiv.innerHTML = `<h4>${questionTitle}</h4>`;
+                    
+                    if (userAnswer) {
+                        const userAnswerText = answerTexts[question][userAnswer];
+                        const userAnswerClass = isCorrect ? 'correct' : 'incorrect';
+                        
+                        questionDiv.innerHTML += `
+                            <div class="user-answer ${userAnswerClass}">
+                                Câu trả lời của bạn: ${userAnswerText}
+                            </div>`;
+                            
+                        if (!isCorrect) {
+                            const correctAnswerText = answerTexts[question][correctAnswers[question]];
+                            questionDiv.innerHTML += `
+                                <div class="correct-answer">
+                                    Đáp án đúng: ${correctAnswerText}
+                                </div>`;
+                        }
+                    } else {
+                        questionDiv.innerHTML += `
+                            <div class="user-answer incorrect">
+                                Bạn chưa trả lời câu hỏi này
+                            </div>
+                            <div class="correct-answer">
+                                Đáp án đúng: ${answerTexts[question][correctAnswers[question]]}
+                            </div>`;
+                    }
+                    
+                    answersContainer.appendChild(questionDiv);
+                }
+            });
+            
+            backBtn.addEventListener('click', function() {
+                reviewAnswersDiv.style.display = 'none';
+                resultDiv.style.display = 'block';
+                
+                // Hiển thị lại giấy khen nếu đủ điểm
+                const score = parseInt(localStorage.getItem('score'));
+                if (score >= 18) {
+                    certificateDiv.style.display = 'block';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Sử Việt Nam - History Explorer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Header Navigation - Cải tiến với nền vàng */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #8B4513;
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(45deg, #8B4513, #D2691E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 15px rgba(139, 69, 19, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .logo-icon:hover {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        /* Menu cải tiến - nằm trên một hàng */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 0.5rem;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            color: #8B4513;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 20px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            font-weight: 600;
+            font-size: 0.95rem;
+            white-space: nowrap;
+            display: block;
+        }
+
+        /* Hiệu ứng hover mượt mà */
+        .nav-menu a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+            border-radius: 20px;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: -1;
+        }
+
+        .nav-menu a:hover::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .nav-menu a:hover {
+            color: #654321;
+            transform: translateY(-2px);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+        }
+
+        .btn-login {
+            background: transparent;
+            color: #8B4513;
+            border: 2px solid #8B4513;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-login::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(139, 69, 19, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-login:hover::before {
+            left: 100%;
+        }
+
+        .btn-login:hover {
+            background: #8B4513;
+            color: #FFD700;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.3);
+        }
+
+        .btn-support {
+            background: linear-gradient(45deg, #8B4513, #D2691E);
+            color: #FFD700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-support::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-support:hover::before {
+            left: 100%;
+        }
+
+        .btn-support:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 69, 19, 0.4);
+        }
+
+        /* Video Background Section */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                45deg,
+                rgba(0, 0, 0, 0.6),
+                rgba(255, 107, 107, 0.3),
+                rgba(255, 217, 61, 0.3)
+            );
+            z-index: -1;
+        }
+
+        /* Sound effect setup */
+        .sound-trigger {
+            position: relative;
+        }
+
+        /* Animated Background for Fallback */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            z-index: -2;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Hero Content */
+        .hero-content {
+            text-align: center;
+            color: #fff;
+            z-index: 10;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.9s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.5);
+        }
+
+        /* Floating Elements */
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .floating-element {
+            position: absolute;
+            opacity: 0.7;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Video Controls - Cải tiến */
+        .video-controls {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .play-pause-btn, .upload-btn, .volume-btn {
+            background: linear-gradient(45deg, rgba(139, 69, 19, 0.8), rgba(210, 105, 30, 0.8));
+            border: 2px solid #FFD700;
+            color: #FFD700;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+        }
+
+        .play-pause-btn:hover, .upload-btn:hover, .volume-btn:hover {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B4513;
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+        }
+
+        .upload-btn {
+            font-size: 1.2rem;
+        }
+
+        .volume-btn {
+            font-size: 1.3rem;
+        }
+
+        /* Responsive - Cải tiến */
+        @media (max-width: 1024px) {
+            .nav-menu {
+                gap: 0.3rem;
+            }
+            
+            .nav-menu a {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .header {
+                padding: 1rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Thêm hiệu ứng chuyển đổi mượt mà cho header khi scroll */
+        .header.scrolled {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.95), rgba(255, 165, 0, 0.95));
+            padding: 0.8rem 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">🏛️</div>
+                <span>History Explorer</span>
+            </div>
+            
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="sound-trigger">Trang chủ</a></li>
+                    <li><a href="#about" class="sound-trigger">Giới thiệu</a></li>
+                    <li><a href="#timeline" class="sound-trigger">Thời kỳ lịch sử</a></li>
+                    <li><a href="#dynasties" class="sound-trigger">Trắc nghiệm</a></li>
+                    <li><a href="#heroes" class="sound-trigger">Khoa Học</a></li>
+                    <li><a href="#contact" class="sound-trigger">Liên Hệ</a></li>
+                </ul>
+            </nav>
+            
+            <div class="nav-buttons">
+                <a href="#login" class="btn btn-login sound-trigger">Đăng nhập</a>
+                <a href="#support" class="btn btn-support sound-trigger">Khám phá ngay</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section with Video Background -->
+    <section class="hero-section" id="home">
+        <!-- Animated Background (fallback) -->
+        <div class="animated-bg"></div>
+        
+        <!-- Video Background - Đã bỏ muted để có âm thanh -->
+        <video class="video-background" autoplay loop id="heroVideo" poster="https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80">
+            <!-- THAY THẾ DÒNG NÀY BẰNG VIDEO CỜ VIỆT NAM CỦA BẠN -->
+            <source src="lichsu.mp4" type="video/mp4">
+            
+            <!-- Video dự phòng về Việt Nam -->
+            <source src="https://cdn.pixabay.com/vimeo/461732454/vietnam-52265.mp4?width=1280&hash=b8d0b0f8c1c1c1c1c1c1c1c1c1c1c1c1" type="video/mp4">
+            <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4">
+        </video>
+
+        <!-- Audio elements for sound effects -->
+        <audio id="hoverSound" preload="auto" volume="0.3">
+            <source src="lichsu.mp4" type="audio/wav">
+        </audio>
+
+        <audio id="clickSound" preload="auto" volume="0.4">
+            <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwgBSl+zO/cdCkGKo7Q9NmDMAUjeMHp4qNXFApEm+DuvmwgBSl+zO/cdCkGKNHL10oHAAoC" type="audio/wav">
+        </audio>
+        
+        <!-- Video Overlay -->
+        <div class="video-overlay"></div>
+        
+        <!-- Floating Elements -->
+        <div class="floating-elements">
+            <div class="floating-element">⚔️</div>
+            <div class="floating-element">🏰</div>
+            <div class="floating-element">📜</div>
+        </div>
+        
+        <!-- Hero Content -->
+        <div class="hero-content">
+            <h1 class="hero-title">Lịch Sử Việt Nam</h1>
+            <p class="hero-subtitle">Khám phá 4000 năm dựng nước và giữ nước</p>
+            <p class="hero-description">
+                Hành trình qua các triều đại, từ thời Hùng Vương đến ngày nay. 
+                Tìm hiểu về những anh hùng dân tộc, những trận chiến vĩ đại, 
+                và di sản văn hóa phong phú của dân tộc Việt Nam.
+            </p>
+            <a href="#timeline" class="cta-button sound-trigger">Bắt đầu khám phá</a>
+        </div>
+        
+        <!-- Video Controls - Đã thêm nút điều khiển âm lượng -->
+        <div class="video-controls">
+            <button class="play-pause-btn" onclick="toggleVideo()" title="Play/Pause">▶️</button>
+            <button class="volume-btn" onclick="toggleMute()" title="Mute/Unmute">🔊</button>
+            <input type="file" id="videoUpload" accept="video/*" style="display: none;" onchange="loadVideo(event)">
+        </div>
+    </section>
+
+    <script>
+        let isMuted = false;
+
+        // Video control functionality - Cải tiến
+        function toggleVideo() {
+            const video = document.getElementById('heroVideo');
+            const btn = document.querySelector('.play-pause-btn');
+            
+            if (video.paused) {
+                video.play();
+                btn.innerHTML = '⏸️';
+            } else {
+                video.pause();
+                btn.innerHTML = '▶️';
+            }
+        }
+
+        // Thêm chức năng điều khiển âm thanh
+        function toggleMute() {
+            const video = document.getElementById('heroVideo');
+            const btn = document.querySelector('.volume-btn');
+            
+            if (video.muted) {
+                video.muted = false;
+                btn.innerHTML = '🔊';
+                isMuted = false;
+            } else {
+                video.muted = true;
+                btn.innerHTML = '🔇';
+                isMuted = true;
+            }
+        }
+
+        // Load custom video - Cải tiến để giữ âm thanh
+        function loadVideo(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const video = document.getElementById('heroVideo');
+                const url = URL.createObjectURL(file);
+                
+                // Xóa các source cũ
+                video.innerHTML = '';
+                
+                // Thêm source mới
+                const source = document.createElement('source');
+                source.src = url;
+                source.type = file.type;
+                video.appendChild(source);
+                
+                // Thiết lập âm thanh
+                video.muted = isMuted;
+                video.volume = 0.7; // Đặt âm lượng mặc định
+                
+                // Load và play video
+                video.load();
+                video.play();
+                
+                // Cập nhật nút control
+                document.querySelector('.play-pause-btn').innerHTML = '⏸️';
+                
+                // Thông báo thành công
+                showNotification('✅ Video đã được tải lên thành công!');
+            }
+        }
+
+        // Show notification
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                right: 20px;
+                background: linear-gradient(45deg, #FFD700, #FFA500);
+                color: #8B4513;
+                padding: 15px 20px;
+                border-radius: 15px;
+                z-index: 10000;
+                font-weight: bold;
+                box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+                animation: slideIn 0.5s ease;
+                border: 2px solid #8B4513;
+            `;
+            notification.textContent = message;
+            
+            // Thêm animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            // Tự động xóa sau 3 giây
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Sound effects - Cải tiến
+        const hoverSound = document.getElementById('hoverSound');
+        const clickSound = document.getElementById('clickSound');
+        
+        // Add hover sound effects
+        document.querySelectorAll('.sound-trigger').forEach(element => {
+            element.addEventListener('mouseenter', () => {
+                if (hoverSound) {
+                    hoverSound.currentTime = 0;
+                    hoverSound.play().catch(e => {}); // Ignore autoplay restrictions
+                }
+            });
+            
+            element.addEventListener('click', () => {
+                if (clickSound) {
+                    clickSound.currentTime = 0;
+                    clickSound.play().catch(e => {}); // Ignore autoplay restrictions
+                }
+            });
+        });
+        
+        // Header scroll effect - Cải tiến
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Video initialization - Đảm bảo video có âm thanh
+        window.addEventListener('load', function() {
+            const video = document.getElementById('heroVideo');
+            if (video) {
+                // Thiết lập âm lượng và âm thanh
+                video.volume = 0.5; // Âm lượng 50%
+                video.muted = false; // Đảm bảo không bị tắt tiếng
+                
+                // Thử phát video với âm thanh
+                video.play().catch(e => {
+                    console.log('Autoplay với âm thanh bị chặn, thử phát không tiếng...');
+                    video.muted = true;
+                    video.play();
+                });
+            }
+
+            // Loading sound effect
+            const loadSound = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmwgBSl+zO/cdCkGKo7Q9NmDMAUjeMHp4qNXFA');
+            loadSound.volume = 0.2;
+            loadSound.play().catch(e => {});
+        });
+
+        // Thêm sự kiện click cho user để bật âm thanh video
+        document.addEventListener('click', function() {
+            const video = document.getElementById('heroVideo');
+            if (video && video.muted) {
+                video.muted = false;
+                document.querySelector('.volume-btn').innerHTML = '🔊';
+            }
+        }, { once: true });
+    </script>
+</body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Triều đại phong kiến Việt Nam</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #D2B48C;
+            --text-color: #4A3728;
+            --bg-light: #FFF8DC;
+            --bg-dark: #8B4513;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-color);
+        }
+        
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .section-heading {
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .dynasty-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin-bottom: 30px;
+            background-color: white;
+        }
+        
+        .dynasty-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+        }
+        
+        .nav-pills .nav-link {
+            color: var(--text-color);
+        }
+        
+        footer {
+            background-color: var(--bg-dark);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: var(--primary-color);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 50px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dynasty-feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .dynasty-feature i {
+            font-size: 24px;
+            color: var(--primary-color);
+            margin-right: 15px;
+        }
+        
+        .cultural-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .cultural-item img {
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        #scrollToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--bg-dark);">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-landmark me-2"></i>
+                Triều Đại Phong Kiến
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gioi-thieu.html">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="thoi-ky-lich-su.html">Thời Kỳ Lịch Sử</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="khoahoc.html">Khóa học</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="TKPT.html">THỜi KỲ PHÁP THUỘC</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <h1 class="display-3 fw-bold">TRIỀU ĐẠI PHONG KIẾN VIỆT NAM</h1>
+            <p class="lead">Hành trình lịch sử hàng nghìn năm của dân tộc</p>
+            <a href="#dynasties" class="btn btn-light btn-lg mt-3">Khám phá ngay</a>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-heading">Giới thiệu về chế độ phong kiến</h2>
+                    <p>Chế độ phong kiến ở Việt Nam tồn tại khoảng 1000 năm, từ thế kỷ X đến cuối thế kỷ XIX, đầu thế kỷ XX. Đây là thời kỳ quan trọng trong lịch sử Việt Nam với nhiều triều đại thay nhau cai trị đất nước.</p>
+                    <p>Trong thời kỳ phong kiến, xã hội Việt Nam được phân chia thành những tầng lớp khác nhau với vua là người đứng đầu, nắm quyền tuyệt đối. Bên cạnh đó là các quan lại, địa chủ và nông dân.</p>
+                    <p>Chế độ phong kiến đã để lại nhiều di sản quý báu về văn hóa, kiến trúc, văn học, nghệ thuật... góp phần hình thành nên bản sắc dân tộc Việt Nam ngày nay.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://hn.ss.bfcplatform.vn/tckt/2018/02/18A02016-tckt.vn-01-768x756.jpg" alt="Cảnh quan thời phong kiến" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline of Dynasties -->
+    <section id="dynasties" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-heading text-center">Các triều đại phong kiến chính</h2>
+            <p class="text-center mb-5">Lịch sử phong kiến Việt Nam trải qua nhiều triều đại khác nhau, mỗi triều đại đều có những đóng góp riêng cho lịch sử dân tộc</p>
+            
+            <ul class="nav nav-pills mb-5 justify-content-center" id="dynastyTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#ngoLy" type="button">Ngô - Đinh - Tiền Lê</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#ly" type="button">Nhà Lý</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#tran" type="button">Nhà Trần</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#le" type="button">Nhà Lê</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" data-bs-toggle="pill" data-bs-target="#nguyen" type="button">Nhà Nguyễn</button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="dynastyTabsContent">
+                <!-- Ngô - Đinh - Tiền Lê -->
+                <div class="tab-pane fade show active" id="ngoLy" role="tabpanel">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <h3>Ngô - Đinh - Tiền Lê (939-1009)</h3>
+                            <p>Sau chiến thắng Bạch Đằng năm 938, Ngô Quyền lên ngôi vua, đóng đô ở Cổ Loa, mở đầu thời kỳ độc lập của dân tộc.</p>
+                            <p>Năm 968, Đinh Bộ Lĩnh thống nhất đất nước, lên ngôi hoàng đế, đặt quốc hiệu là Đại Cồ Việt, đóng đô ở Hoa Lư.</p>
+                            <p>Sau khi Đinh Tiên Hoàng mất, Lê Hoàn lên ngôi, lập ra nhà Tiền Lê (980-1009).</p>
+                            <div class="mt-4">
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-landmark"></i>
+                                    <div>
+                                        <h5>Kinh đô</h5>
+                                        <p>Cổ Loa (Ngô), Hoa Lư (Đinh, Tiền Lê)</p>
+                                    </div>
+                                </div>
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-medal"></i>
+                                    <div>
+                                        <h5>Thành tựu nổi bật</h5>
+                                        <p>Giành độc lập dân tộc, xây dựng chính quyền trung ương tập quyền</p>
+                                    </div>
+                                </div>
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <h5>Nhân vật tiêu biểu</h5>
+                                        <p>Ngô Quyền, Đinh Bộ Lĩnh, Lê Hoàn</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://phuotvivu.com/blog/wp-content/uploads/2021/06/co-do-Hoa-Lu.jpg" alt="Cố đô Hoa Lư" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nhà Lý -->
+                <div class="tab-pane fade" id="ly" role="tabpanel">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <h3>Nhà Lý (1009-1225)</h3>
+                            <p>Nhà Lý do Lý Công Uẩn sáng lập, tồn tại 216 năm với 9 đời vua. Đây là triều đại mở đầu cho thời kỳ phát triển rực rỡ của chế độ phong kiến Việt Nam.</p>
+                            <p>Năm 1010, Lý Công Uẩn dời đô từ Hoa Lư về Đại La và đổi tên thành Thăng Long, mở đầu cho sự phát triển của kinh thành này trong nhiều thế kỷ sau.</p>
+                            <p>Thời Lý đánh dấu sự phát triển của Phật giáo, nhiều chùa tháp được xây dựng. Văn hóa, giáo dục, kinh tế đều có những bước tiến quan trọng.</p>
+                            <div class="mt-4">
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-landmark"></i>
+                                    <div>
+                                        <h5>Kinh đô</h5>
+                                        <p>Thăng Long (Hà Nội ngày nay)</p>
+                                    </div>
+                                </div>
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-medal"></i>
+                                    <div>
+                                        <h5>Thành tựu nổi bật</h5>
+                                        <p>Phát triển Phật giáo, xây dựng Văn Miếu, mở khoa thi Tam giáo</p>
+                                    </div>
+                                </div>
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <h5>Nhân vật tiêu biểu</h5>
+                                        <p>Lý Công Uẩn, Lý Thường Kiệt, Lý Nhân Tông</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://cdnphoto.dantri.com.vn/aE9OE_1XJkRCJi7xnzKDVnu_BQY=/thumb_w/1280/2020/11/20/screen-shot-20201120-at-064530-1605830064756.png" alt="Chùa Một Cột thời Lý" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nhà Trần -->
+                <div class="tab-pane fade" id="tran" role="tabpanel">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <h3>Nhà Trần (1225-1400)</h3>
+                            <p>Nhà Trần do Trần Thủ Độ đưa Trần Cảnh lên ngôi, tồn tại 175 năm với 12 đời vua. Đây là triều đại có nhiều chiến công hiển hách, ba lần đánh thắng quân Nguyên Mông.</p>
+                            <p>Thời Trần đánh dấu sự phát triển mạnh mẽ của kinh tế, văn hóa, giáo dục. Chữ Nôm được phát triển, nhiều tác phẩm văn học giá trị ra đời.</p>
+                            <p>Nhà Trần cũng có nhiều cải cách về chính trị, quân sự, đặc biệt là chế độ "Thái ấp" và "Tước vương" cho các hoàng tử.</p>
+                            <div class="mt-4">
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-landmark"></i>
+                                    <div>
+                                        <h5>Kinh đô</h5>
+                                        <p>Thăng Long</p>
+                                    </div>
+                                </div>
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-medal"></i>
+                                    <div>
+                                        <h5>Thành tựu nổi bật</h5>
+                                        <p>Ba lần đánh thắng quân Nguyên Mông, phát triển văn học chữ Nôm</p>
+                                    </div>
+                                </div>
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <h5>Nhân vật tiêu biểu</h5>
+                                        <p>Trần Hưng Đạo, Trần Nhân Tông, Tuệ Trung Thượng Sĩ</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://dothothonghong.com/media/data/tin-tuc/2017/denthoducthanhtranhungdao4.jpg" alt="Đền thờ Trần Hưng Đạo" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nhà Lê -->
+                <div class="tab-pane fade" id="le" role="tabpanel">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <h3>Nhà Lê (1428-1789)</h3>
+                            <p>Nhà Lê được Lê Lợi sáng lập sau cuộc khởi nghĩa Lam Sơn đánh đuổi quân Minh. Đây là triều đại tồn tại lâu nhất trong lịch sử phong kiến Việt Nam, chia làm hai giai đoạn: Lê sơ và Lê Trung hưng.</p>
+                            <p>Thời Lê sơ, đặc biệt là dưới thời vua Lê Thánh Tông, đất nước có nhiều cải cách quan trọng về hành chính, giáo dục, pháp luật. Bộ luật Hồng Đức được ban hành, được đánh giá là bộ luật tiến bộ nhất thời phong kiến.</p>
+                            <p>Thời Lê Trung hưng, thực quyền nằm trong tay các chúa Trịnh ở Đàng Ngoài, trong khi các chúa Nguyễn nắm quyền ở Đàng Trong.</p>
+                            <div class="mt-4">
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-landmark"></i>
+                                    <div>
+                                        <h5>Kinh đô</h5>
+                                        <p>Thăng Long (Đông Kinh)</p>
+                                    </div>
+                                </div>
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-medal"></i>
+                                    <div>
+                                        <h5>Thành tựu nổi bật</h5>
+                                        <p>Bộ luật Hồng Đức, cải cách hành chính, phát triển khoa cử</p>
+                                    </div>
+                                </div>
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <h5>Nhân vật tiêu biểu</h5>
+                                        <p>Lê Lợi, Lê Thánh Tông, Nguyễn Trãi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://yootek.vn/wp-content/uploads/2024/11/tham-quan-van-mieu-quoc-tu-giam.jpg" alt="Văn Miếu Quốc Tử Giám thời Lê" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Nhà Nguyễn -->
+                <div class="tab-pane fade" id="nguyen" role="tabpanel">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <h3>Nhà Nguyễn (1802-1945)</h3>
+                            <p>Nhà Nguyễn do Nguyễn Ánh (Gia Long) sáng lập, là triều đại phong kiến cuối cùng của Việt Nam, tồn tại 143 năm với 13 đời vua.</p>
+                            <p>Dưới thời Nguyễn, đất nước được thống nhất từ Bắc đến Nam, kinh đô được đặt tại Huế với hệ thống cung điện, lăng tẩm đồ sộ.</p>
+                            <p>Giai đoạn sau của nhà Nguyễn đánh dấu sự xâm lược của thực dân Pháp và sự suy yếu dần của chế độ phong kiến Việt Nam.</p>
+                            <div class="mt-4">
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-landmark"></i>
+                                    <div>
+                                        <h5>Kinh đô</h5>
+                                        <p>Huế (Phú Xuân)</p>
+                                    </div>
+                                </div>
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-medal"></i>
+                                    <div>
+                                        <h5>Thành tựu nổi bật</h5>
+                                        <p>Thống nhất đất nước, xây dựng kinh thành Huế, biên soạn Đại Nam thực lục</p>
+                                    </div>
+                                </div>
+                                <div class="dynasty-feature">
+                                    <i class="fas fa-users"></i>
+                                    <div>
+                                        <h5>Nhân vật tiêu biểu</h5>
+                                        <p>Nguyễn Ánh, Minh Mạng, Tự Đức</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="https://ik.imagekit.io/tvlk/blog/2023/02/dai-noi-hue-1.jpg?tr=q-70,c-at_max,w-500,h-300,dpr-2" alt="Đại Nội Huế" class="img-fluid rounded">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feudal System Section -->
+    <section id="feudal-system" class="py-5">
+        <div class="container">
+            <h2 class="section-heading text-center">Đặc điểm chế độ phong kiến</h2>
+            <p class="text-center mb-5">Tìm hiểu về cấu trúc xã hội, chính trị và kinh tế trong thời kỳ phong kiến Việt Nam</p>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card dynasty-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-crown fa-3x mb-3" style="color: var(--primary-color);"></i>
+                            <h4 class="card-title">Hệ thống chính trị</h4>
+                            <p class="card-text">Vua là người đứng đầu đất nước với quyền lực tuyệt đối. Bên dưới vua là hệ thống quan lại được tuyển chọn qua các kỳ thi. Đất nước được chia thành các đơn vị hành chính: lộ, phủ, châu, huyện, xã.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card dynasty-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-balance-scale fa-3x mb-3" style="color: var(--primary-color);"></i>
+                            <h4 class="card-title">Cấu trúc xã hội</h4>
+                            <p class="card-text">Xã hội phong kiến Việt Nam được phân chia thành nhiều tầng lớp: vua, hoàng tộc, quan lại, sĩ phu, thương nhân, nông dân, thợ thủ công và nô tỳ. Nông dân chiếm đại đa số dân số nhưng chịu nhiều áp bức.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card dynasty-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-coins fa-3x mb-3" style="color: var(--primary-color);"></i>
+                            <h4 class="card-title">Kinh tế</h4>
+                            <p class="card-text">Nông nghiệp là nền tảng kinh tế với chế độ sở hữu ruộng đất phức tạp: công điền, tư điền, đồn điền. Thủ công nghiệp và thương nghiệp cũng phát triển với các làng nghề và thương cảng.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4">
+                    <div class="card dynasty-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-book fa-3x mb-3" style="color: var(--primary-color);"></i>
+                            <h4 class="card-title">Giáo dục và khoa cử</h4>
+                            <p class="card-text">Giáo dục thời phong kiến chủ yếu dựa trên Nho giáo. Hệ thống khoa cử gồm nhiều cấp độ: Hương cử, Hội cử, Đình cử với các học vị Tú tài, Cử nhân, Tiến sĩ. Văn Miếu - Quốc Tử Giám là trung tâm giáo dục lớn.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card dynasty-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-gavel fa-3x mb-3" style="color: var(--primary-color);"></i>
+                            <h4 class="card-title">Luật pháp</h4>
+                            <p class="card-text">Hệ thống pháp luật phong kiến Việt Nam được xây dựng dựa trên các bộ luật như: Hình thư (nhà Lý), Quốc triều hình luật (nhà Trần), Bộ luật Hồng Đức (nhà Lê), Hoàng Việt luật lệ (nhà Nguyễn).</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card dynasty-card h-100">
+                        <div class="card-body text-center">
+                            <i class="fas fa-praying-hands fa-3x mb-3" style="color: var(--primary-color);"></i>
+                            <h4 class="card-title">Tín ngưỡng - Tôn giáo</h4>
+                            <p class="card-text">Thời phong kiến chịu ảnh hưởng của ba tôn giáo chính: Nho giáo, Phật giáo và Đạo giáo (Tam giáo). Bên cạnh đó còn có các tín ngưỡng dân gian như thờ cúng tổ tiên, thờ Thành hoàng làng.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Heritage Section -->
+    <section id="culture" class="py-5 bg-white">
+        <div class="container">
+            <h2 class="section-heading text-center">Di sản văn hóa thời phong kiến</h2>
+            <p class="text-center mb-5">Khám phá những giá trị văn hóa tiêu biểu được hình thành và phát triển trong thời kỳ phong kiến</p>
+            
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="cultural-item">
+                        <img src="https://unl.com.vn/wp-content/uploads/2021/03/kien-truc-cung-dinh-hue-chung-nhan-lich-su-vang-son-hue-imperial-city-2.jpg" alt="Kiến trúc cung đình" class="img-fluid">
+                        <h4>Kiến trúc</h4>
+                        <p>Đền, chùa, cung điện, lăng tẩm với phong cách độc đáo mang đậm bản sắc dân tộc.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="cultural-item">
+                        <img src="https://vcdn-vnexpress.vnecdn.net/2020/09/30/VNE-Old-8850-1601460912.jpg" alt="Văn học cổ" class="img-fluid">
+                        <h4>Văn học</h4>
+                        <p>Các tác phẩm văn học bằng chữ Hán, chữ Nôm với nhiều thể loại đa dạng.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="cultural-item">
+                        <img src="https://image.vovworld.vn/w730/uploaded/vovworld/ovunhuo/2013_03_03/tich%20dien_copy.jpg" alt="Lễ hội dân gian" class="img-fluid">
+                        <h4>Lễ hội</h4>
+                        <p>Lễ hội truyền thống gắn với sản xuất nông nghiệp và tín ngưỡng dân gian.</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="cultural-item">
+                        <img src="https://baotanglichsuquocgia.vn/DataFiles/Uploaded/image/data%20Hung/thang%201%20nam%202016/nha%20nhac%20cung%20dinh%20hue/1.jpg" alt="Nghệ thuật truyền thống" class="img-fluid">
+                        <h4>Nghệ thuật</h4>
+                        <p>Âm nhạc cung đình, tuồng, chèo và nhiều loại hình nghệ thuật dân gian khác.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-4">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="card p-4 dynasty-card">
+                        <h4 class="text-center mb-3">Ảnh hưởng của văn hóa phong kiến đến đời sống hiện đại</h4>
+                        <p>Mặc dù chế độ phong kiến đã lùi vào dĩ vãng, nhưng những giá trị văn hóa của thời kỳ này vẫn còn ảnh hưởng sâu sắc đến đời sống xã hội Việt Nam hiện đại:</p>
+                        <ul>
+                            <li>Hệ thống lễ nghi, phong tục tập quán trong gia đình, dòng họ</li>
+                            <li>Tư tưởng hiếu học, tôn sư trọng đạo</li>
+                            <li>Tinh thần đoàn kết, yêu nước chống ngoại xâm</li>
+                            <li>Nghệ thuật truyền thống: tuồng, chèo, ca trù, nhã nhạc cung đình...</li>
+                            <li>Các công trình kiến trúc, di tích lịch sử - văn hóa</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5">
+        <div class="container">
+            <h2 class="section-heading text-center">Thư viện ảnh</h2>
+            <p class="text-center mb-5">Hình ảnh về các di tích, cổ vật tiêu biểu của thời kỳ phong kiến Việt Nam</p>
+            
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <img src="https://i.ex-cdn.com/danviet.vn/files/content/2025/04/17/164908-3774.jpg" alt="Hoàng thành Thăng Long" class="img-fluid rounded">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://media.vov.vn/sites/default/files/styles/large/public/2020-08/Hue%20%2813%29.jpg" alt="Cố đô Huế" class="img-fluid rounded">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://vietnamtourism.vn//imguploads/tourist/2014/HaNoi/VanMieuQTG/24Vanmieu02.jpg" alt="Văn Miếu Quốc Tử Giám" class="img-fluid rounded">
+                </div>
+                <div class="col-md-4 mt-3">
+                    <img src="https://image.vietgoing.com/destination/large/vietgoing_roc2101114012.webp" alt="Đền Hùng" class="img-fluid rounded">
+                </div>
+                <div class="col-md-4 mt-3">
+                    <img src="https://ddk.1cdn.vn/2020/11/18/image.daidoanket.vn-images-upload-vanpt-11182020-_baiphu.jpg" alt="Chùa Một Cột" class="img-fluid rounded">
+                </div>
+                <div class="col-md-4 mt-3">
+                    <img src="https://meey3d.com/tin-tuc/wp-content/uploads/2023/04/thanh-nha-ho-5.jpeg" alt="Thành nhà Hồ" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Về chúng tôi</h5>
+                    <p>Website giới thiệu về lịch sử các triều đại phong kiến Việt Nam, nhằm giúp mọi người hiểu rõ hơn về giai đoạn lịch sử quan trọng của dân tộc.</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h5>Liên kết</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white">Trang chủ</a></li>
+                        <li><a href="#introduction" class="text-white">Giới thiệu</a></li>
+                        <li><a href="#dynasties" class="text-white">Các triều đại</a></li>
+                        <li><a href="#feudal-system" class="text-white">Chế độ phong kiến</a></li>
+                        <li><a href="#culture" class="text-white">Văn hóa</a></li>
+                        <li><a href="#gallery" class="text-white">Thư viện ảnh</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Liên hệ</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope me-2"></i> info@trieudaiphongkien.vn</li>
+                        <li><i class="fas fa-phone me-2"></i> 024.3333.4444</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Hà Nội, Việt Nam</li>
+                    </ul>
+                    <div class="mt-3">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="background-color: white;">
+            <div class="text-center">
+                <p class="mb-0">© 2025 Triều Đại Phong Kiến Việt Nam. Đã đăng ký bản quyền.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <div id="scrollToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll to Top Button
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.style.opacity = '1';
+                } else {
+                    scrollToTopBtn.style.opacity = '0';
+                }
+            });
+            
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

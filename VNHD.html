@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Việt Nam Hiện Đại</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/api/placeholder/1200/600');
+            height: 500px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .hero-text {
+            text-align: center;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .bg-light-custom {
+            background-color: #f8f9fa;
+        }
+        
+        .card {
+            margin-bottom: 30px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+        
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #dc3545;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .container-timeline {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .container-timeline::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid #dc3545;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid #f8f9fa;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent #f8f9fa;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid #f8f9fa;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent #f8f9fa transparent transparent;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .content {
+            padding: 20px 30px;
+            background-color: #f8f9fa;
+            position: relative;
+            border-radius: 6px;
+        }
+        
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 30px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: rgba(220, 53, 69, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #dc3545;
+        }
+        
+        @media screen and (max-width: 768px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .container-timeline {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .container-timeline::before {
+                left: 60px;
+                border: medium solid #f8f9fa;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent #f8f9fa transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Việt Nam Hiện Đại</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gioi-thieu.html">Giới Thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="thoi-ky-lich-su.html">Thời kỳ Lịch Sử</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="khoahoc.html">Khóa Học</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="TDPK.html">Thuộc Địa Phong Kiến</a>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-image" id="home">
+        <div class="hero-text">
+            <h1 class="display-3 fw-bold">Việt Nam Hiện Đại</h1>
+            <p class="lead">Đất nước, Con người và Nền văn hóa Việt Nam trong thời đại mới</p>
+            <button class="btn btn-danger btn-lg" data-bs-toggle="modal" data-bs-target="#introModal">Tìm Hiểu Thêm</button>
+        </div>
+    </div>
+
+    <!-- Introduction Modal -->
+    <div class="modal fade" id="introModal" tabindex="-1" aria-labelledby="introModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="introModalLabel">Giới thiệu về Việt Nam</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Việt Nam, chính thức là Cộng hòa Xã hội Chủ nghĩa Việt Nam, là một quốc gia nằm ở phía đông của bán đảo Đông Dương thuộc khu vực Đông Nam Á. Với dân số hơn 97 triệu người, Việt Nam là quốc gia đông dân thứ 15 thế giới.</p>
+                    <p>Sau nhiều năm chiến tranh và khó khăn kinh tế, Việt Nam đã trải qua sự phát triển nhanh chóng kể từ khi thực hiện chính sách Đổi Mới vào năm 1986, chuyển đổi từ nền kinh tế kế hoạch tập trung sang nền kinh tế thị trường định hướng xã hội chủ nghĩa.</p>
+                    <p>Ngày nay, Việt Nam là một trong những nền kinh tế phát triển nhanh nhất thế giới với tốc độ tăng trưởng GDP ấn tượng và đã đạt được nhiều thành tựu trong việc giảm nghèo. Đất nước cũng đang từng bước hội nhập sâu rộng vào nền kinh tế toàn cầu.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Việt Nam Bằng Số</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">97+</div>
+                        <p>Triệu dân</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">331,699</div>
+                        <p>km² diện tích</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">54</div>
+                        <p>Dân tộc</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">8</div>
+                        <p>Di sản thế giới</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="section bg-light-custom">
+        <div class="container">
+            <h2 class="text-center mb-5">Lịch Sử Việt Nam</h2>
+            <div class="timeline">
+                <div class="container-timeline left">
+                    <div class="content">
+                        <h3>2500 TCN - 111 TCN</h3>
+                        <p>Thời kỳ Văn Lang - Âu Lạc với truyền thuyết về Vua Hùng dựng nước. Đây là thời kỳ văn hóa Đông Sơn nổi tiếng với nghệ thuật đúc đồng.</p>
+                    </div>
+                </div>
+                <div class="container-timeline right">
+                    <div class="content">
+                        <h3>111 TCN - 939</h3>
+                        <p>1000 năm Bắc thuộc dưới sự đô hộ của phong kiến Trung Hoa. Trong thời kỳ này vẫn nổi lên nhiều cuộc khởi nghĩa như Hai Bà Trưng, Bà Triệu, Lý Bí.</p>
+                    </div>
+                </div>
+                <div class="container-timeline left">
+                    <div class="content">
+                        <h3>939 - 1858</h3>
+                        <p>Thời kỳ độc lập tự chủ với các triều đại Ngô, Đinh, Tiền Lê, Lý, Trần, Hồ, Lê, Mạc, Trịnh - Nguyễn, Tây Sơn và Nguyễn. Đây là thời kỳ phát triển mạnh mẽ về văn hóa, chính trị, quân sự.</p>
+                    </div>
+                </div>
+                <div class="container-timeline right">
+                    <div class="content">
+                        <h3>1858 - 1945</h3>
+                        <p>Thời kỳ Pháp thuộc khi thực dân Pháp xâm lược và đô hộ Việt Nam. Trong giai đoạn này, tinh thần yêu nước và nhiều phong trào cách mạng nổi lên.</p>
+                    </div>
+                </div>
+                <div class="container-timeline left">
+                    <div class="content">
+                        <h3>1945 - 1975</h3>
+                        <p>Cách mạng tháng Tám thành công, Việt Nam tuyên bố độc lập nhưng sau đó phải trải qua hai cuộc kháng chiến chống Pháp và chống Mỹ để thống nhất đất nước.</p>
+                    </div>
+                </div>
+                <div class="container-timeline right">
+                    <div class="content">
+                        <h3>1975 - nay</h3>
+                        <p>Đất nước thống nhất và bước vào thời kỳ đổi mới, mở cửa và hội nhập quốc tế. Việt Nam đã đạt được nhiều thành tựu quan trọng về kinh tế, xã hội và ngoại giao.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture Section -->
+    <section id="culture" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Văn Hóa Việt Nam</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img src="https://imgcdn.tapchicongthuong.vn/tcct-media/20/11/18/1_di-san-van-hoa-phi-vat-the.jpg" class="card-img-top" alt="Văn hóa truyền thống">
+                        <div class="card-body">
+                            <h3 class="card-title">Văn Hóa Truyền Thống</h3>
+                            <p class="card-text">Văn hóa Việt Nam có lịch sử lâu đời và phong phú với sự ảnh hưởng từ Nho giáo, Phật giáo, Đạo giáo cùng với bản sắc dân tộc đặc trưng. Văn hóa gia đình với đạo hiếu, tôn trọng người cao tuổi và tinh thần cộng đồng luôn được đề cao.</p>
+                            <p class="card-text">Các lễ hội truyền thống như Tết Nguyên Đán, Tết Trung Thu, lễ hội Đền Hùng... vẫn được bảo tồn và phát triển. Nghệ thuật truyền thống như hát Chèo, Tuồng, Cải lương, Quan họ, Ca trù đều đã được UNESCO công nhận là di sản văn hóa phi vật thể.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img src="https://media.vov.vn/sites/default/files/styles/large_watermark/public/2020-12/nam_4883.jpg" class="card-img-top" alt="Văn hóa đương đại">
+                        <div class="card-body">
+                            <h3 class="card-title">Văn Hóa Đương Đại</h3>
+                            <p class="card-text">Việt Nam hiện đại đang trải qua sự giao thoa giữa giá trị truyền thống và hiện đại. Đô thị hóa nhanh chóng, công nghệ số và mạng xã hội đã tạo ra nhiều thay đổi trong lối sống, đặc biệt ở thế hệ trẻ.</p>
+                            <p class="card-text">Nghệ thuật đương đại Việt Nam đang phát triển mạnh mẽ với nhiều họa sĩ, nhạc sĩ, đạo diễn được quốc tế công nhận. Điện ảnh Việt Nam cũng có những bộ phim gây tiếng vang ở các liên hoan phim quốc tế.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://cdn3.ivivu.com/2023/08/pho-bo-ivivu.jpeg" class="card-img-top" alt="Ẩm thực">
+                        <div class="card-body">
+                            <h4 class="card-title">Ẩm Thực</h4>
+                            <p class="card-text">Ẩm thực Việt Nam nổi tiếng thế giới với sự cân bằng, tươi ngon và lành mạnh. Các món ăn tiêu biểu như phở, bánh mì, bún chả, nem rán đã trở nên phổ biến trên toàn cầu. Mỗi vùng miền đều có những đặc sản riêng, tạo nên bức tranh ẩm thực đa dạng.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://lamia.com.vn/storage/ao-dai-cach-tan-phoi-hoa-tiet-1.jpg" class="card-img-top" alt="Trang phục">
+                        <div class="card-body">
+                            <h4 class="card-title">Trang Phục</h4>
+                            <p class="card-text">Áo dài là trang phục truyền thống tiêu biểu của Việt Nam, được biết đến như một biểu tượng văn hóa. Ngoài ra còn có các trang phục dân tộc đặc sắc như áo tứ thân, áo cánh, khăn đóng, áo bà ba... Hiện nay, áo dài vẫn được sử dụng trong các dịp lễ, sự kiện quan trọng.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://www.vinhomescentralpark.co/wp-content/uploads/2021/04/landmark81-2.jpeg" class="card-img-top" alt="Kiến trúc">
+                        <div class="card-body">
+                            <h4 class="card-title">Kiến Trúc</h4>
+                            <p class="card-text">Kiến trúc Việt Nam đa dạng từ các đình, chùa, đền, miếu cổ đến các công trình hiện đại. Nhà rường xứ Huế, nhà sàn vùng cao, nhà ở Nam Bộ đều có những đặc trưng riêng biệt. Trong kiến trúc hiện đại, nhiều công trình kết hợp giữa truyền thống và đương đại tạo nên phong cách độc đáo.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economy Section -->
+    <section id="economy" class="section bg-light-custom">
+        <div class="container">
+            <h2 class="text-center mb-5">Kinh Tế Việt Nam</h2>
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3>Phát Triển Kinh Tế</h3>
+                    <p>Từ sau chính sách Đổi Mới năm 1986, kinh tế Việt Nam đã chuyển đổi từ nền kinh tế kế hoạch tập trung sang nền kinh tế thị trường định hướng xã hội chủ nghĩa. Trong hơn 30 năm qua, Việt Nam đã đạt được tốc độ tăng trưởng GDP ấn tượng, trung bình từ 6-7% mỗi năm.</p>
+                    <p>Từ một trong những quốc gia nghèo nhất thế giới, Việt Nam đã vươn lên trở thành nước có thu nhập trung bình. Tỷ lệ nghèo đói đã giảm mạnh từ hơn 70% xuống còn khoảng 5%. Việt Nam đã ký kết nhiều hiệp định thương mại tự do và hội nhập sâu vào nền kinh tế toàn cầu.</p>
+                    <div class="mt-4">
+                        <h4>Các Ngành Kinh Tế Chính:</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Sản xuất và chế biến</li>
+                                    <li>Nông nghiệp và thủy sản</li>
+                                    <li>Du lịch và dịch vụ</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul>
+                                    <li>Công nghệ thông tin</li>
+                                    <li>Tài chính ngân hàng</li>
+                                    <li>Năng lượng và khoáng sản</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://media.vneconomy.vn/w800/images/upload/2023/12/10/ktvn.png" class="img-fluid rounded" alt="Phát triển kinh tế Việt Nam">
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-industry text-danger me-2"></i>Công Nghiệp & Sản Xuất</h4>
+                            <p class="card-text">Ngành công nghiệp đóng góp khoảng 34% GDP với các lĩnh vực nổi bật như dệt may, điện tử, sản xuất ô tô, thép, hóa chất. Việt Nam đã trở thành điểm đến hấp dẫn cho các nhà đầu tư nước ngoài nhờ chi phí sản xuất cạnh tranh và lực lượng lao động trẻ, có kỹ năng.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-seedling text-success me-2"></i>Nông Nghiệp</h4>
+                            <p class="card-text">Dù đóng góp vào GDP đã giảm xuống còn khoảng 14%, nông nghiệp vẫn là ngành quan trọng, thu hút khoảng 40% lực lượng lao động. Việt Nam là một trong những nước xuất khẩu gạo, cà phê, hạt điều, hạt tiêu, thủy sản hàng đầu thế giới. Nông nghiệp công nghệ cao đang được đẩy mạnh phát triển.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-code text-primary me-2"></i>Kinh Tế Số</h4>
+                            <p class="card-text">Kinh tế số đang phát triển nhanh chóng với sự bùng nổ của thương mại điện tử, fintech, công nghệ thông tin. Các công ty công nghệ khởi nghiệp (startup) Việt Nam ngày càng thu hút vốn đầu tư lớn. Chính phủ đã đặt mục tiêu kinh tế số chiếm 20% GDP vào năm 2025.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tourism Section -->
+    <section id="tourism" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Du Lịch Việt Nam</h2>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2023/3/9/1155741/Du-Lich-Vinh-Ha-Long-01.jpg" class="card-img-top" alt="Vịnh Hạ Long">
+                        <div class="card-body">
+                            <h4 class="card-title">Vịnh Hạ Long</h4>
+                            <p class="card-text">Di sản thiên nhiên thế giới với hàng nghìn hòn đảo đá vôi nổi lên từ mặt biển tạo nên khung cảnh kỳ vĩ. Đây là điểm đến nổi tiếng nhất của du lịch Việt Nam.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://i1-dulich.vnecdn.net/2022/06/01/Hoi-An-VnExpress-5851-16488048-4863-2250-1654057244.jpg?w=0&h=0&q=100&dpr=1&fit=crop&s=Z2ea_f0O7kgGZllKmJF92g" class="card-img-top" alt="Hội An">
+                        <div class="card-body">
+                            <h4 class="card-title">Phố Cổ Hội An</h4>
+                            <p class="card-text">Di sản văn hóa thế giới với kiến trúc cổ được bảo tồn nguyên vẹn. Hội An nổi tiếng với đèn lồng, phố đi bộ, ẩm thực đặc sắc và các công trình kiến trúc đa văn hóa.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://mtcs.1cdn.vn/2023/06/07/spcv.jpg" class="card-img-top" alt="Sapa">
+                        <div class="card-body">
+                            <h4 class="card-title">Sapa</h4>
+                            <p class="card-text">Thị trấn miền núi với những ruộng bậc thang tuyệt đẹp, văn hóa dân tộc đa dạng và khung cảnh hùng vĩ của dãy Hoàng Liên Sơn với đỉnh Fansipan cao nhất Đông Dương.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://www.kkday.com/vi/blog/wp-content/uploads/6f6a69d3f924397a6035.jpg" class="card-img-top" alt="Huế">
+                        <div class="card-body">
+                            <h4 class="card-title">Cố Đô Huế</h4>
+                            <p class="card-text">Cố đô của triều Nguyễn với hệ thống di tích lịch sử văn hóa đồ sộ được UNESCO công nhận. Từ Đại Nội, lăng tẩm các vua đến sông Hương, núi Ngự, Huế là điểm đến của lịch sử và văn hóa.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://cdn.thuvienphapluat.vn/uploads/tintuc/2025/03/14/13-tinh-thanh-song-Cuu-Long.jpg" class="card-img-top" alt="Mekong">
+                        <div class="card-body">
+                            <h4 class="card-title">Đồng Bằng Sông Cửu Long</h4>
+                            <p class="card-text">Vùng đất của sông nước, miệt vườn với văn hóa sông nước độc đáo. Đây là nơi có các chợ nổi, vườn trái cây, làng nghề truyền thống và ẩm thực đặc sắc của miền Tây Nam Bộ.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <div class="card">
+                        <img src="https://hoangphuan.com/wp-content/uploads/2024/05/5057SYcmauYaNYng-MaiThanhChYYng1.jpg" class="card-img-top" alt="Đà Nẵng">
+                        <div class="card-body">
+                            <h4 class="card-title">Đà Nẵng</h4>
+                            <p class="card-text">Thành phố biển hiện đại với Cầu Rồng, bán đảo Sơn Trà, Ngũ Hành Sơn và bãi biển Mỹ Khê tuyệt đẹp. Đà Nẵng là điểm đến lý tưởng cho du lịch nghỉ dưỡng và khám phá.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-danger btn-lg">Khám Phá Thêm</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Photo Gallery -->
+    <section id="gallery" class="section bg-light-custom">
+        <div class="container">
+            <h2 class="text-center mb-5">Thư Viện Hình Ảnh</h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <a href="#" class="d-block h-100">
+                        <img class="img-fluid img-thumbnail" src="https://image.dienthoaivui.com.vn/x,webp,q90/https://dashboard.dienthoaivui.com.vn/uploads/dashboard/editor_upload/hinh-nen-la-co-viet-nam-29.jpg" alt="Hình ảnh Việt Nam">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <a href="#" class="d-block h-100">
+                        <img class="img-fluid img-thumbnail" src="https://image.dienthoaivui.com.vn/x,webp,q90/https://dashboard.dienthoaivui.com.vn/uploads/dashboard/editor_upload/hinh-nen-la-co-viet-nam-22.jpg" alt="Hình ảnh Việt Nam">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <a href="#" class="d-block h-100">
+                        <img class="img-fluid img-thumbnail" src="https://image.dienthoaivui.com.vn/x,webp,q90/https://dashboard.dienthoaivui.com.vn/uploads/dashboard/editor_upload/hinh-nen-la-co-viet-nam-11.jpg" alt="Hình ảnh Việt Nam">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <a href="#" class="d-block h-100">
+                        <img class="img-fluid img-thumbnail" src="https://image.dienthoaivui.com.vn/x,webp,q90/https://dashboard.dienthoaivui.com.vn/uploads/dashboard/editor_upload/hinh-nen-la-co-viet-nam-38.jpg" alt="Hình ảnh Việt Nam">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <a href="#" class="d-block h-100">
+                        <img class="img-fluid img-thumbnail" src="https://image.dienthoaivui.com.vn/x,webp,q90/https://dashboard.dienthoaivui.com.vn/uploads/dashboard/editor_upload/hinh-nen-la-co-viet-nam-27.jpg" alt="Hình ảnh Việt Nam">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <a href="#" class="d-block h-100">
+                        <img class="img-fluid img-thumbnail" src="https://image.dienthoaivui.com.vn/x,webp,q90/https://dashboard.dienthoaivui.com.vn/uploads/dashboard/editor_upload/hinh-nen-la-co-viet-nam-51.jpg" alt="Hình ảnh Việt Nam">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <a href="#" class="d-block h-100">
+                        <img class="img-fluid img-thumbnail" src="https://image.dienthoaivui.com.vn/x,webp,q90/https://dashboard.dienthoaivui.com.vn/uploads/dashboard/editor_upload/hinh-nen-la-co-viet-nam-7.jpg" alt="Hình ảnh Việt Nam">
+                    </a>
+                </div>
+                <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <a href="#" class="d-block h-100">
+                        <img class="img-fluid img-thumbnail" src="https://cdn-media.sforum.vn/storage/app/media/ctv_seo4/Van%20Pham/7/anh-viet-nam-19.jpg" alt="Hình ảnh Việt Nam">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Liên Hệ</h2>
+            <div class="row">
+                <div class="col-lg-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title">Gửi Thông Tin</h3>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Họ và tên</label>
+                                    <input type="text" class="form-control" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Chủ đề</label>
+                                    <input type="text" class="form-control" id="subject">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Nội dung</label>
+                                    <textarea class="form-control" id="message" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-danger">Gửi</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Thông Tin Liên Lạc</h3>
+                            <p class="card-text">Hãy liên hệ với chúng tôi để biết thêm thông tin về Việt Nam hoặc để được hỗ trợ lên kế hoạch chuyến đi của bạn.</p>
+                            <ul class="list-unstyled">
+                                <li class="mb-3"><i class="fas fa-map-marker-alt text-danger me-2"></i> 123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</li>
+                                <li class="mb-3"><i class="fas fa-phone text-danger me-2"></i> +84 123 456 789</li>
+                                <li class="mb-3"><i class="fas fa-envelope text-danger me-2"></i> info@vietnamhiendai.vn</li>
+                                <li class="mb-3"><i class="fas fa-clock text-danger me-2"></i> Thứ Hai - Thứ Sáu: 8:00 - 17:00</li>
+                            </ul>
+                            <div class="mt-4">
+                                <h5>Kết nối với chúng tôi</h5>
+                                <div class="d-flex">
+                                    <a href="#" class="text-dark me-3"><i class="fab fa-facebook-square fa-2x"></i></a>
+                                    <a href="#" class="text-dark me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                                    <a href="#" class="text-dark me-3"><i class="fab fa-twitter-square fa-2x"></i></a>
+                                    <a href="#" class="text-dark me-3"><i class="fab fa-youtube fa-2x"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="section bg-danger text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h3>Đăng ký nhận tin</h3>
+                    <p>Nhận thông tin mới nhất về Việt Nam, văn hóa, du lịch và các sự kiện sắp tới.</p>
+                </div>
+                <div class="col-lg-6">
+                    <form class="row g-3">
+                        <div class="col-md-8">
+                            <input type="email" class="form-control" placeholder="Email của bạn" required>
+                        </div>
+                        <div class="col-md-4">
+                            <button type="submit" class="btn btn-light w-100">Đăng ký</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5>Về Việt Nam Hiện Đại</h5>
+                    <p>Trang web cung cấp thông tin về đất nước, con người và nền văn hóa Việt Nam trong thời đại mới. Chúng tôi mong muốn giới thiệu hình ảnh Việt Nam hiện đại, năng động nhưng vẫn giữ gìn bản sắc dân tộc.</p>
+                </div>
+                <div class="col-lg-2 mb-4 mb-lg-0">
+                    <h5>Liên Kết</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-white">Trang Chủ</a></li>
+                        <li><a href="#history" class="text-white">Lịch Sử</a></li>
+                        <li><a href="#culture" class="text-white">Văn Hóa</a></li>
+                        <li><a href="#economy" class="text-white">Kinh Tế</a></li>
+                        <li><a href="#tourism" class="text-white">Du Lịch</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 mb-4 mb-lg-0">
+                    <h5>Thông Tin Liên Hệ</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Đường Lê Lợi, Quận 1, TP. HCM</li>
+                        <li><i class="fas fa-phone me-2"></i> +84 123 456 789</li>
+                        <li><i class="fas fa-envelope me-2"></i> info@vietnamhiendai.vn</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Theo Dõi Chúng Tôi</h5>
+                    <div class="d-flex">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-square fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter-square fa-2x"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-youtube fa-2x"></i></a>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-outline-light">Tiếng Việt</button>
+                        <button class="btn btn-light">English</button>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4 bg-light">
+            <div class="text-center">
+                <p>&copy; 2025 Việt Nam Hiện Đại. Bản quyền thuộc về chúng tôi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Change navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark');
+                navbar.classList.remove('navbar-transparent');
+            } else {
+                navbar.classList.add('navbar-transparent');
+            }
+        });
+        
+        // Initialize tooltips
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+    </script>
+</body>
+</html>

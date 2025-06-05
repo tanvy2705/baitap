@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thời Kỳ Lịch Sử - Lịch Sử Việt Nam</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS cho trang thời kỳ lịch sử */
+        .timeline-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #8b4513;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            top: 20px;
+            border-radius: 50%;
+            background-color: #f5deb3;
+            border: 4px solid #8b4513;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-content h3 {
+            color: #8b4513;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            margin-bottom: 10px;
+        }
+        
+        .timeline-year {
+            font-weight: bold;
+            color: #8b4513;
+            margin-bottom: 5px;
+        }
+        
+        .timeline-image {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .achievement-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .achievement-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .achievement-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .achievement-info {
+            padding: 20px;
+        }
+        
+        .achievement-info h3 {
+            color: #8b4513;
+            margin-bottom: 10px;
+        }
+
+        /* Responsiveness */
+        @media screen and (max-width: 768px) {
+            .timeline-container::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 19px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="site-title">LỊCH SỬ VIỆT NAM</h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Trang chủ</a></li>
+                    <li><a href="gioi-thieu.html" class="active">Giới thiệu</a></li>
+                    <li><a href="thoi-ky-lich-su.html" class="active">Thời kỳ lịch sử</a></li>
+                    <li><a href="trac-nghiem.html">Trắc nghiệm</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="intro-banner">
+                <h2>Các cột mốc lịch sử quan trọng</h2>
+                <p class="intro-text">Hành trình 4000 năm dựng nước và giữ nước của dân tộc Việt Nam với những thời khắc lịch sử đáng nhớ và các thành tựu vẻ vang.</p>
+            </div>
+
+            <!-- Timeline Section -->
+            <div class="timeline-container">
+                <!-- Item 1 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2879 TCN - 258 TCN</div>
+                        <h3>Thời đại Hồng Bàng</h3>
+                        <img src="anh/vuahung.png" alt="Thời đại Hồng Bàng" class="timeline-image">
+                        <p>Theo truyền thuyết, 18 đời Vua Hùng trị vì nước Văn Lang, đặt nền móng cho quốc gia Việt Nam và văn hóa dân tộc với nền văn minh nông nghiệp lúa nước, trống đồng và văn hóa Đông Sơn.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 2 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">179 TCN - 111 TCN</div>
+                        <h3>Nhà nước Âu Lạc</h3>
+                        <img src="anh/aulac.jpg" alt="Nhà nước Âu Lạc" class="timeline-image">
+                        <p>An Dương Vương thành lập nhà nước Âu Lạc, xây dựng Cổ Loa Thành - kinh đô với hệ thống phòng thủ kiểu thành lũy hình xoắn ốc và chế tạo nỏ thần công nghệ tiên tiến.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 3 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">40 - 43</div>
+                        <h3>Khởi nghĩa Hai Bà Trưng</h3>
+                        <img src="anh/haibatrung.jpg" alt="Khởi nghĩa Hai Bà Trưng" class="timeline-image">
+                        <p>Trưng Trắc và Trưng Nhị lãnh đạo cuộc khởi nghĩa chống lại ách đô hộ của nhà Hán, giành lại độc lập trong gần 3 năm và được tôn làm Trưng Nữ Vương - các nữ vương đầu tiên trong lịch sử Việt Nam.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 4 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">938</div>
+                        <h3>Chiến thắng Bạch Đằng</h3>
+                        <img src="anh/chienthangbachdang.jpg" alt="Chiến thắng Bạch Đằng" class="timeline-image">
+                        <p>Ngô Quyền đánh bại quân Nam Hán trên sông Bạch Đằng bằng chiến thuật cắm cọc, mở ra thời kỳ độc lập tự chủ kéo dài của dân tộc sau hơn 1000 năm Bắc thuộc.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 5 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1010</div>
+                        <h3>Dời đô về Thăng Long</h3>
+                        <img src="anh/đôiveTL.jpg" alt="Thăng Long" class="timeline-image">
+                        <p>Lý Thái Tổ dời đô từ Hoa Lư về Đại La và đổi tên thành Thăng Long (Rồng Bay Lên), đặt nền móng cho kinh đô ngàn năm văn hiến - Hà Nội ngày nay.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 6 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1076</div>
+                        <h3>Nam quốc sơn hà</h3>
+                        <img src="anh/lythuongkiet.png" alt="Lý Thường Kiệt" class="timeline-image">
+                        <p>Lý Thường Kiệt chỉ huy chiến thắng trước quân Tống và là tác giả bài thơ "Nam quốc sơn hà" - được coi là bản tuyên ngôn độc lập đầu tiên của Việt Nam.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 7 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1288</div>
+                        <h3>Chiến thắng quân Nguyên Mông</h3>
+                        <img src="anh/tranhungdao.jpg" alt="Trần Hưng Đạo" class="timeline-image">
+                        <p>Trần Hưng Đạo chỉ huy chiến thắng Bạch Đằng lần thứ 2, đánh bại đội quân xâm lược Nguyên Mông hùng mạnh nhất thế giới thời bấy giờ, bảo vệ độc lập dân tộc.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 8 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1418 - 1427</div>
+                        <h3>Khởi nghĩa Lam Sơn</h3>
+                        <img src="anh/leloi.jpg" alt="Lê Lợi" class="timeline-image">
+                        <p>Lê Lợi lãnh đạo cuộc khởi nghĩa Lam Sơn đánh đuổi quân Minh, giành lại độc lập và lên ngôi vua, lập nên triều đại Hậu Lê kéo dài hơn 300 năm trong lịch sử.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 9 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1789</div>
+                        <h3>Chiến thắng Ngọ Đống Đa</h3>
+                        <img src="anh/nguyenhue.png" alt="Quang Trung" class="timeline-image">
+                        <p>Nguyễn Huệ (Quang Trung) chỉ huy chiến dịch thần tốc đánh bại 29 vạn quân Thanh trong vòng 5 ngày Tết Kỷ Dậu, một trong những chiến thắng vang dội nhất lịch sử dân tộc.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 10 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1945</div>
+                        <h3>Cách mạng tháng Tám</h3>
+                        <img src="anh/CMT8.png" alt="Cách mạng tháng Tám" class="timeline-image">
+                        <p>Ngày 2/9/1945, tại Quảng trường Ba Đình (Hà Nội), Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa - nhà nước công nông đầu tiên ở Đông Nam Á.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 11 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1954</div>
+                        <h3>Chiến thắng Điện Biên Phủ</h3>
+                        <img src="anh/chienthangdienbienphu.jpg" alt="Điện Biên Phủ" class="timeline-image">
+                        <p>Chiến dịch Điện Biên Phủ dưới sự chỉ huy của Đại tướng Võ Nguyên Giáp đã đánh bại pháo đài quân sự lớn nhất của Pháp, buộc thực dân Pháp phải ký Hiệp định Genève, chấm dứt chiến tranh.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 12 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1975</div>
+                        <h3>Đại thắng mùa xuân</h3>
+                        <img src="anh/daithangmuaxuan.jpg" alt="Giải phóng miền Nam" class="timeline-image">
+                        <p>Chiến dịch Hồ Chí Minh giải phóng Sài Gòn ngày 30/4/1975, kết thúc 21 năm chiến tranh và thống nhất đất nước sau hơn một thế kỷ chia cắt dưới ách đô hộ của các thế lực ngoại bang.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 13 -->
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1986</div>
+                        <h3>Công cuộc Đổi mới</h3>
+                        <img src="anh/congcuocdoimoi.jpg" alt="Đổi mới" class="timeline-image">
+                        <p>Đại hội Đảng lần thứ VI đánh dấu bước ngoặt quan trọng với chính sách Đổi mới, chuyển từ nền kinh tế bao cấp sang nền kinh tế thị trường định hướng xã hội chủ nghĩa.</p>
+                    </div>
+                </div>
+                
+                <!-- Item 14 -->
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1995 - 2007</div>
+                        <h3>Hội nhập quốc tế</h3>
+                        <img src="anh/hoinhapquocte.jpg" alt="Hội nhập quốc tế" class="timeline-image">
+                        <p>Việt Nam từng bước hội nhập với thế giới: gia nhập ASEAN (1995), bình thường hóa quan hệ với Mỹ (1995), gia nhập APEC (1998), ký Hiệp định Thương mại Việt-Mỹ (2000), gia nhập WTO (2007).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievement Section -->
+            <section class="intro-section">
+                <h2 class="section-title">Những thành tựu tiêu biểu của dân tộc</h2>
+                
+                <div class="achievement-grid">
+                    <!-- Thành tựu 1 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="anh/v.jpg" alt="Văn hóa Đông Sơn">
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Văn hóa Đông Sơn</h3>
+                            <p>Một trong những nền văn minh rực rỡ của người Việt cổ với kỹ thuật đúc đồng tinh xảo, tạo ra những chiếc trống đồng với hoa văn phức tạp phản ánh đời sống xã hội thời đại.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Thành tựu 2 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="anh/ci.jpg" alt="Văn Miếu - Quốc Tử Giám">
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Văn Miếu - Quốc Tử Giám</h3>
+                            <p>Trường đại học đầu tiên của Việt Nam được xây dựng từ năm 1070 dưới thời Lý Thánh Tông, là minh chứng cho truyền thống hiếu học và tôn sư trọng đạo của dân tộc Việt Nam.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Thành tựu 3 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="anh/chu.jpg" alt="Chữ Nôm">
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Chữ Nôm</h3>
+                            <p>Hệ thống chữ viết riêng của người Việt được sáng tạo từ thời Lý-Trần, cho phép ghi lại tiếng Việt bằng các ký tự biến thể từ chữ Hán, góp phần bảo tồn và phát triển văn học dân tộc.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Thành tựu 4 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="anh/hst.jpg" alt="Hội Sơn Tùng">
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Đại Việt Sử Ký Toàn Thư</h3>
+                            <p>Bộ sử biên niên đầu tiên và quan trọng nhất của Việt Nam do Ngô Sĩ Liên biên soạn vào thế kỷ 15, ghi lại lịch sử Việt Nam từ thời Hồng Bàng đến thời Lê.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Thành tựu 5 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="anh/nt.jpg" alt="Nghệ thuật Đông Sơn">
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Nghệ thuật Đông Sơn</h3>
+                            <p>Nghệ thuật trang trí trên trống đồng Đông Sơn chứa đựng những giá trị thẩm mỹ cao với các hình ảnh chân thực về đời sống xã hội và tín ngưỡng của người Việt cổ.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Thành tựu 6 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="anh/hue.jpg" alt="Kiến trúc cung đình Huế">
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Kiến trúc cung đình Huế</h3>
+                            <p>Quần thể di tích Cố đô Huế được UNESCO công nhận là Di sản Văn hóa Thế giới, tiêu biểu cho nghệ thuật kiến trúc cung đình Việt Nam thời phong kiến.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Thành tựu 7 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="anh/tl.jpg" alt="Hệ thống thủy lợi">
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Hệ thống thủy lợi cổ đại</h3>
+                            <p>Đê sông Hồng được xây dựng từ thời Triệu Đà và phát triển qua các triều đại, là công trình thủy lợi vĩ đại giúp phòng chống lũ lụt và phát triển nông nghiệp.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Thành tựu 8 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="anh/qs.jpg" alt="Nghệ thuật quân sự">
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Nghệ thuật quân sự Việt Nam</h3>
+                            <p>Các chiến lược quân sự độc đáo như "vườn không nhà trống", "trận địa cọc ngầm Bạch Đằng", và sau này là chiến tranh nhân dân đã giúp Việt Nam chiến thắng nhiều kẻ thù hùng mạnh.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Thành tựu 9 -->
+                    <div class="achievement-card">
+                        <div class="achievement-image">
+                            <img src="anh/dk.jpg" alt="Truyền thống đoàn kết">
+                        </div>
+                        <div class="achievement-info">
+                            <h3>Truyền thống đoàn kết dân tộc</h3>
+                            <p>Tinh thần "đoàn kết một lòng" đã trở thành truyền thống quý báu giúp dân tộc Việt Nam vượt qua mọi khó khăn, thử thách trong suốt chiều dài lịch sử.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
