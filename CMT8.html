@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cách mạng tháng Tám - The August Revolution</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d4a017;
+            --secondary-color: #8b0000;
+            --text-color: #333;
+            --light-bg: #fff9e6;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+        }
+        
+        .hero-section {
+            background-color: var(--light-bg);
+            padding: 6rem 0;
+            position: relative;
+        }
+        
+        .hero-text {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            font-weight: 700;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 30px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: 3px;
+            background: var(--primary-color);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+        
+        .timeline-date {
+            font-weight: bold;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+        
+        .timeline-marker {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        
+        .card {
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .person-card {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .person-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--primary-color);
+            margin: 0 auto 20px;
+        }
+        
+        .quote-section {
+            background-color: var(--light-bg);
+            padding: 5rem 0;
+        }
+        
+        .quote {
+            font-style: italic;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        .quote-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .gallery-img {
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        
+        .nav-link {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+        
+        .nav-link.active {
+            color: var(--secondary-color) !important;
+            font-weight: 700;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://edumedia.dalat.vn//Images/LDG/khoa.sgd/BONHIEMPGDD/HKP%C4%90TOANQUOC/img4587_638584453005231672.jpeg" alt="Logo" width="30" height="30" class="d-inline-block align-text-top me-2">
+                Cách mạng tháng Tám
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gioi-thieu.html">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="thoi-ky-lich-su.html">Thời Kỳ Lịch Sử </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="khoahoc.html">Khóa học</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="VNHD.html">Việt Nam Hiện Đại</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold hero-text">Cách mạng tháng Tám</h1>
+                    <h2 class="mb-4 hero-text">Cuộc cách mạng vĩ đại của dân tộc Việt Nam</h2>
+                    <p class="lead">Cuộc cách mạng tháng Tám năm 1945 đã kết thúc chế độ thực dân phong kiến, mở ra kỷ nguyên mới trong lịch sử dân tộc Việt Nam.</p>
+                    <a href="#intro" class="btn btn-primary btn-lg mt-3">Tìm hiểu thêm</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://eahleo.daklak.gov.vn/uploads/eahleo/tin-tuc/nam-2022/thang8/ngay16/Ki%20niem%2077%20nam%20Ngay%20cach%20mang%20thang%201.png" alt="Cách mạng tháng Tám" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Introduction Section -->
+    <section id="intro" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Giới thiệu về Cách mạng tháng Tám</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <p>Cách mạng tháng Tám (19/8/1945 - 2/9/1945) là một sự kiện lịch sử trọng đại đánh dấu bước ngoặt quan trọng của dân tộc Việt Nam. Đây là cuộc cách mạng dân tộc dân chủ nhân dân do Đảng Cộng sản Đông Dương (nay là Đảng Cộng sản Việt Nam) lãnh đạo, đã lật đổ chế độ thực dân Pháp và phát xít Nhật, lật đổ chế độ quân chủ phong kiến, giành độc lập dân tộc.</p>
+                    <p>Cuộc cách mạng diễn ra trong bối cảnh Chiến tranh thế giới thứ hai kết thúc, quân đội phát xít Nhật đầu hàng Đồng minh, tạo nên một thời cơ chiến lược cho nhân dân Việt Nam vùng lên giành lấy chính quyền từ tay phát xít Nhật.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card mb-4">
+                        <div class="card-body bg-light">
+                            <h5 class="card-title text-center">Thông tin cơ bản</h5>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-light d-flex justify-content-between">
+                                    <span><strong>Thời gian:</strong></span>
+                                    <span>19/8/1945 - 2/9/1945</span>
+                                </li>
+                                <li class="list-group-item bg-light d-flex justify-content-between">
+                                    <span><strong>Lãnh đạo:</strong></span>
+                                    <span>Đảng Cộng sản Đông Dương</span>
+                                </li>
+                                <li class="list-group-item bg-light d-flex justify-content-between">
+                                    <span><strong>Kết quả:</strong></span>
+                                    <span>Thành lập nước Việt Nam Dân chủ Cộng hòa</span>
+                                </li>
+                                <li class="list-group-item bg-light d-flex justify-content-between">
+                                    <span><strong>Bối cảnh:</strong></span>
+                                    <span>Nhật đầu hàng Đồng minh (15/8/1945)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <img src="https://datafiles.nghean.gov.vn/nan-ubnd/2926/quantritintuc20248/chnhphulmthoivietnamdnchucongharamatsaukhicchmangthngtmthnhcnganhttxvn.jpg" alt="Diễn biến Cách mạng tháng Tám" class="img-fluid rounded shadow-sm">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section id="history" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Lịch sử Cách mạng tháng Tám</h2>
+            <div class="row">
+                <div class="col-lg-6 order-lg-2">
+                    <img src="https://visitbadinh.com/DataFiles/2024/07/Nodes/20240730-160121-AjIQBlqO.jpg" alt="Quảng trường Ba Đình ngày 2/9/1945" class="img-fluid rounded shadow mb-4">
+                    <div class="ratio ratio-16x9 mb-4">
+                        <img src="https://datafiles.nghean.gov.vn/nan-ubnd/2918/quantritintuc20238/A.-bai-y-nghia-CM-thang-8.1945638288063682991001.jpg" alt="Cách mạng tháng Tám" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <h4>Bối cảnh lịch sử</h4>
+                    <p>Từ đầu năm 1945, tình hình thế giới có nhiều biến động. Chiến tranh thế giới thứ hai đi đến hồi kết thúc với thất bại của phe phát xít. Tại Đông Dương, Nhật đảo chính Pháp (9/3/1945) và lập nên chính quyền bù nhìn do Bảo Đại đứng đầu.</p>
+                    
+                    <h4>Chuẩn bị khởi nghĩa</h4>
+                    <p>Trước tình hình đó, tháng 3/1945, Ban Thường vụ Trung ương Đảng họp và ra chỉ thị "Nhật - Pháp bắn nhau và hành động của chúng ta", chủ trương phát động cao trào kháng Nhật cứu nước làm tiền đề cho Tổng khởi nghĩa.</p>
+                    
+                    <h4>Hội nghị Tân Trào</h4>
+                    <p>Ngày 13/8/1945, Hội nghị toàn quốc của Đảng họp tại Tân Trào (Tuyên Quang) quyết định phát động Tổng khởi nghĩa giành chính quyền trước khi quân Đồng minh vào Đông Dương. Ngày 16/8, Đại hội Quốc dân họp tại Tân Trào thông qua "10 chính sách lớn của Việt Minh", quyết định Quốc kỳ, Quốc ca và thành lập Ủy ban Dân tộc giải phóng Việt Nam do Hồ Chí Minh làm Chủ tịch.</p>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12">
+                    <h4 class="text-center mb-4">Diễn biến chính của cuộc Cách mạng</h4>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="https://mediabcb.mediatech.vn/upload/image/201308/medium/17237_mit%20tinh.jpg" class="card-img-top" alt="Khởi nghĩa ở Hà Nội">
+                                <div class="card-body">
+                                    <h5 class="card-title">Khởi nghĩa ở Hà Nội</h5>
+                                    <p class="card-text">Ngày 19/8/1945, cuộc khởi nghĩa giành chính quyền ở Hà Nội đã thành công. Hàng vạn nhân dân cùng các lực lượng vũ trang tiến vào Nhà hát Lớn, Bắc Bộ phủ và các cơ quan đầu não của địch, buộc Chính phủ bù nhìn của Trần Trọng Kim phải trao quyền.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="https://thpt-vxuan.thuathienhue.edu.vn/imgs/Thu_muc_he_thong/_Nam_2023/tin-tuc/resize-images5712719-12.jpg" class="card-img-top" alt="Khởi nghĩa ở Huế">
+                                <div class="card-body">
+                                    <h5 class="card-title">Khởi nghĩa ở Huế</h5>
+                                    <p class="card-text">Ngày 23/8/1945, nhân dân Huế khởi nghĩa giành chính quyền. Vua Bảo Đại tuyên bố thoái vị, trao ấn kiếm cho đại diện Chính phủ cách mạng lâm thời, chấm dứt chế độ phong kiến tồn tại hàng nghìn năm ở Việt Nam.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100">
+                                <img src="https://cdn.giaoduc.net.vn/images/0db62b8e6f438e50b6b11f06afa1b324e5bf475f8d889067f493bbed90b4fc39b502d597fcaea7463c638bf1c6f3f154/n.jpg" class="card-img-top" alt="Khởi nghĩa ở Sài Gòn">
+                                <div class="card-body">
+                                    <h5 class="card-title">Khởi nghĩa ở Sài Gòn</h5>
+                                    <p class="card-text">Ngày 25/8/1945, nhân dân Sài Gòn - Chợ Lớn khởi nghĩa giành chính quyền. Ủy ban Nhân dân Cách mạng lâm thời Nam Bộ ra đời do Trần Văn Giàu làm Chủ tịch.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Dòng thời gian sự kiện</h2>
+            <div class="timeline">
+                <div class="row timeline-item">
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="timeline-date">09/03/1945</h5>
+                                <h6>Nhật đảo chính Pháp</h6>
+                                <p>Nhật đảo chính Pháp và nắm độc quyền thống trị Đông Dương, lập nên chính quyền bù nhìn.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="timeline-marker"></div>
+                    </div>
+                    <div class="col-lg-5"></div>
+                </div>
+                
+                <div class="row timeline-item">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-2">
+                        <div class="timeline-marker"></div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="timeline-date">15/08/1945</h5>
+                                <h6>Nhật đầu hàng Đồng minh</h6>
+                                <p>Nhật Bản đầu hàng Đồng minh vô điều kiện, tạo nên thời cơ thuận lợi cho cách mạng Việt Nam.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row timeline-item">
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="timeline-date">16/08/1945</h5>
+                                <h6>Đại hội Quốc dân tại Tân Trào</h6>
+                                <p>Đại hội thông qua chủ trương Tổng khởi nghĩa, thành lập Ủy ban Dân tộc giải phóng Việt Nam do Hồ Chí Minh làm Chủ tịch.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="timeline-marker"></div>
+                    </div>
+                    <div class="col-lg-5"></div>
+                </div>
+                
+                <div class="row timeline-item">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-2">
+                        <div class="timeline-marker"></div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="timeline-date">19/08/1945</h5>
+                                <h6>Khởi nghĩa giành chính quyền tại Hà Nội</h6>
+                                <p>Nhân dân Hà Nội nổi dậy giành chính quyền, chiếm Bắc Bộ phủ, đánh dấu thắng lợi đầu tiên của cuộc Tổng khởi nghĩa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row timeline-item">
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="timeline-date">23/08/1945</h5>
+                                <h6>Khởi nghĩa giành chính quyền tại Huế</h6>
+                                <p>Khởi nghĩa thành công tại Huế, vua Bảo Đại tuyên bố thoái vị, chấm dứt chế độ phong kiến tại Việt Nam.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="timeline-marker"></div>
+                    </div>
+                    <div class="col-lg-5"></div>
+                </div>
+                
+                <div class="row timeline-item">
+                    <div class="col-lg-5"></div>
+                    <div class="col-lg-2">
+                        <div class="timeline-marker"></div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="timeline-date">25/08/1945</h5>
+                                <h6>Khởi nghĩa giành chính quyền tại Sài Gòn</h6>
+                                <p>Nhân dân Sài Gòn - Chợ Lớn nổi dậy giành chính quyền, thành lập Ủy ban Nhân dân Cách mạng lâm thời Nam Bộ.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row timeline-item">
+                    <div class="col-lg-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="timeline-date">02/09/1945</h5>
+                                <h6>Tuyên ngôn Độc lập</h6>
+                                <p>Tại Quảng trường Ba Đình, Hà Nội, Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hòa.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="timeline-marker"></div>
+                    </div>
+                    <div class="col-lg-5"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leaders Section -->
+    <section id="leaders" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Lãnh đạo tiêu biểu</h2>
+            <div class="row">
+                <div class="col-md-4 person-card">
+                    <img src="https://donduong.lamdong.dcs.vn/resize.aspx?file=%2fPortals%2f3%2fmedia%2fnewsimage%2fh%2fo%2f-%2fho-chi-minh.jpg&w=800&h=-1" alt="Chủ tịch Hồ Chí Minh" class="person-img">
+                    <h4>Chủ tịch Hồ Chí Minh</h4>
+                    <p>Lãnh tụ vĩ đại của dân tộc Việt Nam, người sáng lập và lãnh đạo Đảng Cộng sản Việt Nam, Chủ tịch nước đầu tiên của nước Việt Nam Dân chủ Cộng hòa.</p>
+                </div>
+                <div class="col-md-4 person-card">
+                    <img src="https://cdnimage.daihoidang.vn/t400x500/Media/Graphic/Profile/2020/12/02/truong-chinh-edit.jpg" alt="Tổng Bí thư Trường Chinh" class="person-img">
+                    <h4>Tổng Bí thư Trường Chinh</h4>
+                    <p>Tổng Bí thư của Đảng Cộng sản Đông Dương trong thời kỳ Cách mạng tháng Tám, người có công lớn trong việc hoạch định đường lối cách mạng.</p>
+                </div>
+                <div class="col-md-4 person-card">
+                    <img src="https://file.qdnd.vn/data/images/0/2021/08/11/huuduong_tv/unnamed.jpg?dpi=150&quality=100&w=870" alt="Đại tướng Võ Nguyên Giáp" class="person-img">
+                    <h4>Đại tướng Võ Nguyên Giáp</h4>
+                    <p>Vị tướng tài ba, người chỉ huy các lực lượng vũ trang cách mạng trong Cách mạng tháng Tám, sau này trở thành Tổng Tư lệnh Quân đội nhân dân Việt Nam.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <i class="fas fa-quote-left fa-3x text-secondary mb-3"></i>
+                    <p class="quote">"Không có gì quý hơn độc lập tự do."</p>
+                    <p class="quote-author">- Chủ tịch Hồ Chí Minh</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Significance Section -->
+    <section id="significance" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Ý nghĩa lịch sử</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h4>Đối với dân tộc Việt Nam</h4>
+                    <ul class="list-group list-group-flush mb-4">
+                        <li class="list-group-item">Đưa dân tộc Việt Nam bước vào kỷ nguyên độc lập, tự do.</li>
+                        <li class="list-group-item">Chấm dứt chế độ phong kiến kéo dài hàng nghìn năm ở Việt Nam.</li>
+                        <li class="list-group-item">Khai sinh ra Nhà nước Việt Nam Dân chủ Cộng hòa - Nhà nước công nông đầu tiên ở Đông Nam Á.</li>
+                        <li class="list-group-item">Mở ra thời kỳ mới - thời kỳ độc lập dân tộc gắn liền với chủ nghĩa xã hội.</li>
+                    </ul>
+                    
+                    <h4>Bài học kinh nghiệm</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Nắm vững thời cơ cách mạng.</li>
+                        <li class="list-group-item">Phát huy sức mạnh đại đoàn kết toàn dân.</li>
+                        <li class="list-group-item">Vai trò lãnh đạo của Đảng và Chủ tịch Hồ Chí Minh.</li>
+                        <li class="list-group-item">Kết hợp đấu tranh chính trị với đấu tranh vũ trang.</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h4>Đối với phong trào cách mạng thế giới</h4>
+                   <p>Cách mạng tháng Tám có ý nghĩa quốc tế to lớn, cổ vũ mạnh mẽ phong trào đấu tranh giải phóng dân tộc ở các nước thuộc địa và phụ thuộc, góp phần làm sụp đổ hệ thống thuộc địa của chủ nghĩa đế quốc trên toàn thế giới.</p>
+                    
+                    <div class="card mb-4 mt-4">
+                        <div class="card-body">
+                            <h5 class="card-title">Di sản lịch sử</h5>
+                            <p>Cách mạng tháng Tám để lại nhiều bài học quý báu về nghệ thuật chớp thời cơ, về phát huy sức mạnh đoàn kết dân tộc, về vai trò của quần chúng nhân dân trong cách mạng, về sự lãnh đạo của Đảng và Chủ tịch Hồ Chí Minh.</p>
+                            <p>Những bài học này vẫn còn nguyên giá trị trong công cuộc xây dựng và bảo vệ đất nước Việt Nam hiện nay.</p>
+                        </div>
+                    </div>
+                    
+                    <img src="https://datafiles.nghean.gov.vn/nan-ubnd/4128/quantritintuc20248/1_638263080831680930638590463105896072.png" alt="Kỷ niệm Cách mạng tháng Tám" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title">Thư viện ảnh</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="https://images2.thanhnien.vn/528068263637045248/2024/10/6/z5901207181158dbdd17b7d5b85c7eabe98deb832e031a-17281851219701468494490.jpg alt="Quân cách mạng tiến vào Hà Nội" class="img-fluid gallery-img shadow">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://dcs.bacgiang.gov.vn/documents/17798838/21900259/1723769588886_19+thang+8.jpg/ba210f6b-01fd-4d4a-9b7f-90d2b0144f0a?t=1723769588887" alt="Bắc Bộ phủ trong ngày khởi nghĩa" class="img-fluid gallery-img shadow">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://baotanglichsu.vn/DataFiles/Uploaded/image/DATA%20HUONG/1_TIN%20NAM%202015/TIENG%20VIET/thang%208/cach%20mang%20t8%20nam%201945/11.jpg" alt="Nhân dân hưởng ứng lời kêu gọi Tổng khởi nghĩa" class="img-fluid gallery-img shadow">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://baodaklak.vn/file/fb9e3a03798789de0179a1704dea238e/fb9e3a03798789de017a318a35b2627b/092021/image0043_20210921092935.jpg" alt="Bảo Đại thoái vị" class="img-fluid gallery-img shadow">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://media-cdn-v2.laodong.vn/storage/newsportal/2023/9/1/1236241/3-VHTT-1032609-01.jpg" alt="Quảng trường Ba Đình ngày 2/9/1945" class="img-fluid gallery-img shadow">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://file3.qdnd.vn/data/images/0/2022/09/01/tvkimgiang/bac%20ho%20doc%20tuyen%20ngon.jpg?dpi=150&quality=100&w=870" alt="Chủ tịch Hồ Chí Minh đọc Tuyên ngôn Độc lập" class="img-fluid gallery-img shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title">Liên hệ và Góp ý</h2>
+            <div class="row">
+                <div class="col-lg-6">
+                    <form>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Họ và tên</label>
+                            <input type="text" class="form-control" id="name" placeholder="Nhập họ tên của bạn">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Nhập địa chỉ email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Nội dung góp ý</label>
+                            <textarea class="form-control" id="message" rows="5" placeholder="Nhập nội dung góp ý của bạn"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi góp ý</button>
+                    </form>
+                </div>
+                <div class="col-lg-6">
+                    <h4>Thông tin liên hệ</h4>
+                    <p><i class="fas fa-map-marker-alt me-2"></i> Bảo tàng Cách mạng Việt Nam, Hà Nội</p>
+                    <p><i class="fas fa-phone me-2"></i> (024) 3825 2471</p>
+                    <p><i class="fas fa-envelope me-2"></i> thongtincachmang@gmail.com</p>
+                    
+                    <h4 class="mt-4">Theo dõi chúng tôi</h4>
+                    <div class="d-flex">
+                        <a href="#" class="me-3 text-dark fs-4"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="me-3 text-dark fs-4"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="me-3 text-dark fs-4"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="me-3 text-dark fs-4"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4>Về trang web</h4>
+                    <p>Trang web về Cách mạng tháng Tám nhằm cung cấp thông tin lịch sử chính xác về một trong những sự kiện quan trọng nhất của dân tộc Việt Nam.</p>
+                </div>
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4>Liên kết nhanh</h4>
+                    <ul class="list-unstyled">
+                        <li><a href="#intro" class="text-white">Giới thiệu</a></li>
+                        <li><a href="#history" class="text-white">Lịch sử</a></li>
+                        <li><a href="#timeline" class="text-white">Dòng thời gian</a></li>
+                        <li><a href="#leaders" class="text-white">Lãnh đạo</a></li>
+                        <li><a href="#significance" class="text-white">Ý nghĩa</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Đăng ký nhận tin</h4>
+                    <p>Nhận thông tin cập nhật về các sự kiện lịch sử và triển lãm.</p>
+                    <div class="input-group mb-3">
+                        <input type="email" class="form-control" placeholder="Email của bạn" aria-label="Email của bạn">
+                        <button class="btn btn-primary" type="button">Đăng ký</button>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 Cách mạng tháng Tám - Tất cả các quyền được bảo lưu.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top shadow"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Back to Top Button
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.querySelector('.back-to-top').style.display = "block";
+            } else {
+                document.querySelector('.back-to-top').style.display = "none";
+            }
+        };
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highland Explorer - Du Lịch Vùng Cao</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .app-container {
+            max-width: 390px;
+            margin: 0 auto;
+            background: #fff;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0,0,0,0.3);
+        }
+
+        /* Header với hiệu ứng gradient */
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 50px 20px 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .greeting {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+
+        .user-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .weather-widget {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .weather-icon {
+            font-size: 40px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .weather-info h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .weather-details {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            padding: 25px 20px;
+            background: linear-gradient(to bottom, #f8f9ff, #ffffff);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .action-card {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+            border: 1px solid rgba(255,255,255,0.8);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .action-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .action-card:hover::before {
+            left: 100%;
+        }
+
+        .action-icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .action-card h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .action-card p {
+            font-size: 12px;
+            color: #7f8c8d;
+            line-height: 1.4;
+        }
+
+        /* AR Feature Highlight */
+        .ar-feature {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 25px;
+            padding: 25px;
+            margin: 20px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ar-feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 0.3; }
+        }
+
+        .ar-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .ar-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ar-description {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .ar-button {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ar-button:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Popular Destinations */
+        .destinations {
+            padding: 0 20px 20px;
+        }
+
+        .destination-cards {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+
+        .destination-card {
+            min-width: 280px;
+            height: 200px;
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .destination-card:hover {
+            transform: scale(1.05);
+        }
+
+        .destination-bg {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            position: relative;
+        }
+
+        .destination-bg.sapa {
+            background: linear-gradient(135deg, #4facfe, #00f2fe);
+        }
+
+        .destination-bg.dalat {
+            background: linear-gradient(135deg, #43e97b, #38f9d7);
+        }
+
+        .destination-bg.hagiang {
+            background: linear-gradient(135deg, #fa709a, #fee140);
+        }
+
+        .destination-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: white;
+            padding: 20px;
+        }
+
+        .destination-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .destination-info {
+            font-size: 14px;
+            opacity: 0.9;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 390px;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0,0,0,0.1);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 10px;
+            border-radius: 15px;
+        }
+
+        .nav-item.active {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .nav-item:not(.active):hover {
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .nav-icon {
+            font-size: 20px;
+        }
+
+        .nav-label {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff6b6b, #ffa500);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .fab:hover {
+            transform: scale(1.1) rotate(360deg);
+            box-shadow: 0 12px 35px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Scrollbar styling */
+        .destination-cards::-webkit-scrollbar {
+            height: 4px;
+        }
+
+        .destination-cards::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 2px;
+        }
+
+        .destination-cards::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* Animation cho các elements */
+        .animate-in {
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content">
+                <div class="greeting">Xin chào!</div>
+                <div class="user-name">Minh Anh 👋</div>
+                
+                <div class="weather-widget">
+                    <div class="weather-icon">🌤️</div>
+                    <div class="weather-info">
+                        <h3>Sa Pa, Lào Cai</h3>
+                        <div class="weather-details">18°C • Có mây • Độ ẩm 75%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions animate-in">
+            <div class="section-title">
+                ⚡ Tính năng nổi bật
+            </div>
+            
+            <div class="actions-grid">
+                <div class="action-card">
+                    <span class="action-icon">📍</span>
+                    <h3>Check-in Thông minh</h3>
+                    <p>Tự động check-in khi đến địa điểm</p>
+                </div>
+                
+                <div class="action-card">
+                    <span class="action-icon">🎯</span>
+                    <h3>Tìm Đường Offline</h3>
+                    <p>GPS hoạt động không cần mạng</p>
+                </div>
+                
+                <div class="action-card">
+                    <span class="action-icon">🌍</span>
+                    <h3>AI Tour Guide</h3>
+                    <p>Hướng dẫn viên AI cá nhân</p>
+                </div>
+                
+                <div class="action-card">
+                    <span class="action-icon">📊</span>
+                    <h3>Dự Báo Thời Tiết</h3>
+                    <p>Theo dõi thời tiết 7 ngày</p>
+                </div>
+            </div>
+
+            <!-- AR Feature Highlight -->
+            <div class="ar-feature">
+                <div class="ar-content">
+                    <div class="ar-title">
+                        🥽 Trải nghiệm AR/VR
+                    </div>
+                    <div class="ar-description">
+                        Khám phá vùng cao qua thực tế ảo, xem trước điểm đến và có trải nghiệm 360° độc đáo!
+                    </div>
+                    <button class="ar-button">
+                        <span>🚀</span>
+                        Thử Ngay
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Popular Destinations -->
+        <div class="destinations animate-in">
+            <div class="section-title">
+                🏔️ Điểm đến hot nhất
+            </div>
+            
+            <div class="destination-cards">
+                <div class="destination-card">
+                    <div class="destination-bg sapa"></div>
+                    <div class="destination-overlay">
+                        <div class="destination-name">Sa Pa</div>
+                        <div class="destination-info">
+                            <span>⭐ 4.8</span>
+                            <span>🌡️ 15-20°C</span>
+                            <span>📍 120km</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-bg dalat"></div>
+                    <div class="destination-overlay">
+                        <div class="destination-name">Đà Lạt</div>
+                        <div class="destination-info">
+                            <span>⭐ 4.9</span>
+                            <span>🌡️ 18-25°C</span>
+                            <span>📍 300km</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="destination-card">
+                    <div class="destination-bg hagiang"></div>
+                    <div class="destination-overlay">
+                        <div class="destination-name">Hà Giang</div>
+                        <div class="destination-info">
+                            <span>⭐ 4.7</span>
+                            <span>🌡️ 12-18°C</span>
+                            <span>📍 350km</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Floating Action Button -->
+        <div class="fab">
+            <span>🎤</span>
+        </div>
+
+        <!-- Bottom Navigation -->
+        <div class="bottom-nav">
+            <div class="nav-item active">
+                <div class="nav-icon">🏠</div>
+                <div class="nav-label">Trang chủ</div>
+            </div>
+            
+            <div class="nav-item">
+                <div class="nav-icon">🗺️</div>
+                <div class="nav-label">Bản đồ</div>
+            </div>
+            
+            <div class="nav-item">
+                <div class="nav-icon">❤️</div>
+                <div class="nav-label">Yêu thích</div>
+            </div>
+            
+            <div class="nav-item">
+                <div class="nav-icon">👤</div>
+                <div class="nav-label">Cá nhân</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Thêm hiệu ứng tương tác
+        document.querySelectorAll('.action-card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+
+        // Navigation interaction
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelector('.nav-item.active').classList.remove('active');
+                this.classList.add('active');
+            });
+        });
+
+        // FAB interaction
+        document.querySelector('.fab').addEventListener('click', function() {
+            alert('🎤 Tính năng điều khiển giọng nói sẽ sớm ra mắt!');
+        });
+
+        // AR Button interaction
+        document.querySelector('.ar-button').addEventListener('click', function() {
+            this.innerHTML = '<span>⏳</span> Đang tải...';
+            setTimeout(() => {
+                alert('🥽 Tính năng AR/VR đang được phát triển!');
+                this.innerHTML = '<span>🚀</span> Thử Ngay';
+            }, 2000);
+        });
+
+        // Destination cards interaction
+        document.querySelectorAll('.destination-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const name = this.querySelector('.destination-name').textContent;
+                alert(`🏔️ Đang mở thông tin chi tiết về ${name}...`);
+            });
+        });
+
+        // Thêm hiệu ứng cuộn mượt cho destination cards
+        const destinationCards = document.querySelector('.destination-cards');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        destinationCards.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - destinationCards.offsetLeft;
+            scrollLeft = destinationCards.scrollLeft;
+        });
+
+        destinationCards.addEventListener('mouseleave', () => {
+            isDown = false;
+        });
+
+        destinationCards.addEventListener('mouseup', () => {
+            isDown = false;
+        });
+
+        destinationCards.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - destinationCards.offsetLeft;
+            const walk = (x - startX) * 2;
+            destinationCards.scrollLeft = scrollLeft - walk;
+        });
+
+        // Cập nhật thời gian thực cho weather
+        function updateWeather() {
+            const temps = [15, 16, 17, 18, 19, 20];
+            const conditions = ['☀️', '⛅', '🌤️', '🌥️'];
+            
+            const temp = temps[Math.floor(Math.random() * temps.length)];
+            const condition = conditions[Math.floor(Math.random() * conditions.length)];
+            
+            document.querySelector('.weather-icon').textContent = condition;
+            document.querySelector('.weather-details').innerHTML = `${temp}°C • Có mây • Độ ẩm ${70 + Math.floor(Math.random() * 20)}%`;
+        }
+
+        // Cập nhật weather mỗi 30 giây
+        setInterval(updateWeather, 30000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa Học Lịch Sử</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f0f5f9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .browser-header {
+            background-color: #4a7bab;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            padding: 15px 25px;
+        }
+        .browser-dot {
+            height: 15px;
+            width: 15px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+        }
+        .red-dot {
+            background-color: #ff6b6b;
+        }
+        .yellow-dot {
+            background-color: #f5f5f5;
+        }
+        .green-dot {
+            background-color: #7bed9f;
+        }
+        .search-bar {
+            background-color: #cbd5e0;
+            border-radius: 20px;
+            height: 30px;
+            width: 80%;
+            margin-left: 20px;
+        }
+        .main-container {
+            background-color: white;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .course-title {
+            color: #2c3e50;
+            font-weight: 700;
+            font-size: 3rem;
+            line-height: 1.2;
+        }
+        .course-subtitle {
+            color: #555;
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        .register-btn {
+            background-color: #4a7bab;
+            color: white;
+            font-weight: 600;
+            padding: 10px 30px;
+            border-radius: 25px;
+            border: none;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+        .register-btn:hover {
+            background-color: #365b83;
+            transform: translateY(-2px);
+        }
+        .course-features {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 30px;
+        }
+        .course-features li {
+            margin-bottom: 15px;
+            color: #555;
+            font-size: 1.2rem;
+        }
+        .course-features li::before {
+            content: "•";
+            color: #555;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: 0;
+        }
+        .illustration {
+            background-color: #f9f3e5;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+        }
+        .modal-header {
+            background-color: #4a7bab;
+            color: white;
+        }
+        .class-button {
+            width: 100%;
+            margin: 10px 0;
+            padding: 15px;
+            font-size: 1.2rem;
+            background-color: #e9ecef;
+            border: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .class-button:hover {
+            background-color: #4a7bab;
+            color: white;
+        }
+        .class-button.active {
+            background-color: #4a7bab;
+            color: white;
+        }
+        .learning-path {
+            margin-top: 20px;
+            border-left: 3px solid #4a7bab;
+            padding-left: 20px;
+        }
+        .learning-path-item {
+            margin-bottom: 15px;
+        }
+        .learning-path-item h5 {
+            color: #2c3e50;
+        }
+        .learning-materials {
+            margin-top: 20px;
+        }
+        .material-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .hidden {
+            display: none;
+        }
+        .payment-methods {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .payment-method {
+            width: 48%;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        .payment-method:hover, .payment-method.active {
+            border-color: #4a7bab;
+            background-color: rgba(74, 123, 171, 0.1);
+        }
+        .payment-method img {
+            height: 30px;
+            margin-right: 10px;
+        }
+        .payment-details {
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .form-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        .form-step {
+            width: 30%;
+            text-align: center;
+            position: relative;
+        }
+        .form-step::after {
+            content: "";
+            position: absolute;
+            top: 15px;
+            right: -50%;
+            width: 100%;
+            height: 3px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+        .form-step:last-child::after {
+            display: none;
+        }
+        .step-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #ddd;
+            color: #fff;
+            line-height: 30px;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 2;
+        }
+        .form-step.active .step-number {
+            background-color: #4a7bab;
+        }
+        .form-step.completed .step-number {
+            background-color: #4a7bab;
+        }
+        .form-step.completed::after {
+            background-color: #4a7bab;
+        }
+        .access-code {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f1f7fc;
+            border-radius: 8px;
+            letter-spacing: 3px;
+        }
+        .course-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .course-grid-item {
+            width: calc(25% - 15px);
+            text-align: center;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .course-grid-item:hover, .course-grid-item.active {
+            background-color: #4a7bab;
+            color: white;
+        }
+        .course-curriculum {
+            margin-top: 40px;
+        }
+        .curriculum-header {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .curriculum-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        .curriculum-list li {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        .curriculum-list li i {
+            margin-right: 10px;
+            color: #4a7bab;
+        }
+    </style>
+</head>
+<body>
+    <div class="container py-5">
+        <div class="browser-header d-flex align-items-center">
+            <div>
+                <span class="browser-dot red-dot"></span>
+                <span class="browser-dot yellow-dot"></span>
+                <span class="browser-dot green-dot"></span>
+            </div>
+            <div class="search-bar"></div>
+        </div>
+        <div class="main-container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h1 class="course-title">LỚP HỌC</h1>
+                    <div class="course-grid mb-4">
+                        <div class="course-grid-item">Lớp 1</div>
+                        <div class="course-grid-item">Lớp 2</div>
+                        <div class="course-grid-item">Lớp 4</div>
+                        <div class="course-grid-item">Lớp 5</div>
+                        <div class="course-grid-item">Lớp 6</div>
+                        <div class="course-grid-item active">Lớp 7</div>
+                        <div class="course-grid-item">Lớp 8</div>
+                        <div class="course-grid-item">Lớp 9</div>
+                        <div class="course-grid-item">Lớp 11</div>
+                        <div class="course-grid-item">Lớp 12</div>
+                    </div>
+                    
+                    <h2 class="course-subtitle">LỘ TRÌNH HỌC</h2>
+                    <div class="divider mb-4"></div>
+                    
+                    <h2 class="course-subtitle">KIẾN THỨC BÀI HỌC</h2>
+                    <ul class="curriculum-list">
+                        <li><i class="fas fa-circle"></i> Phong trào yêu nước đầu thế kỷ XX</li>
+                        <li><i class="fas fa-circle"></i> Cách mạng tháng Tám năm 1945</li>
+                        <li><i class="fas fa-circle"></i> Kháng chiến toàn quốc bùng nổ</li>
+                        <li><i class="fas fa-circle"></i> Xây dựng chủ nghĩa xã hội ở miền Bắc</li>
+                    </ul>
+                    
+                    <button class="register-btn mt-4" data-bs-toggle="modal" data-bs-target="#registerModal">ĐĂNG KÝ NGAY</button>
+                </div>
+                <div class="col-lg-5">
+                    <div class="illustration">
+                        <img src="https://image.jimcdn.com/app/cms/image/transf/dimension=960x1024:format=png/path/sd7df4096ae35138b/image/id9b96405a0433abf/version/1709569695/image.png" alt="Lịch sử illustration" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Đăng ký khóa học</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Progress Steps -->
+                    <div class="form-steps">
+                        <div class="form-step active" id="step1">
+                            <span class="step-number">1</span>
+                            <p>Thông tin cá nhân</p>
+                        </div>
+                        <div class="form-step" id="step2">
+                            <span class="step-number">2</span>
+                            <p>Thanh toán</p>
+                        </div>
+                        <div class="form-step" id="step3">
+                            <span class="step-number">3</span>
+                            <p>Xác nhận</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 1: Personal Information -->
+                    <div id="personalInfoForm">
+                        <form id="registrationForm">
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Họ và tên</label>
+                                <input type="text" class="form-control" id="fullName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Số điện thoại</label>
+                                <input type="tel" class="form-control" id="phone" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="classSelect" class="form-label">Chọn lớp học</label>
+                                <select class="form-select" id="classSelect" required>
+                                    <option value="" selected disabled>--Chọn lớp học--</option>
+                                    <option value="1">Lớp 1</option>
+                                    <option value="2">Lớp 2</option>
+                                    <option value="4">Lớp 4</option>
+                                    <option value="5">Lớp 5</option>
+                                    <option value="6">Lớp 6</option>
+                                    <option value="7">Lớp 7</option>
+                                    <option value="8">Lớp 8</option>
+                                    <option value="9">Lớp 9</option>
+                                    <option value="11">Lớp 11</option>
+                                    <option value="12">Lớp 12</option>
+                                </select>
+                            </div>
+                            <button type="button" class="btn register-btn w-100" id="nextToPayment">Tiếp tục</button>
+                        </form>
+                    </div>
+                    
+                    <!-- Step 2: Payment -->
+                    <div id="paymentForm" class="hidden">
+                        <h5 class="mb-3">Thông tin thanh toán</h5>
+                        <div class="card p-3 mb-3">
+                            <h5>Giá khóa học: 1.500.000 VNĐ</h5>
+                            <p class="text-muted">Bao gồm đầy đủ tài liệu và hỗ trợ học tập</p>
+                        </div>
+                        
+                        <h5 class="mb-3">Phương thức thanh toán</h5>
+                        <div class="payment-methods">
+                            <div class="payment-method" data-method="creditcard">
+                                <img src="https://cdn.hdbank.com.vn/hdbank-file/news/editor/1dNxSGJfkn0sIQCeoSym20231129104318/theghinolagi2_1701229636687.png" alt="Credit Card">
+                                <span>Thẻ tín dụng/ghi nợ</span>
+                            </div>
+                            <div class="payment-method" data-method="banktransfer">
+                                <img src="https://techcombank.com/thong-tin/thong-bao/ra-mat-bo-suu-tap-the-thanh-toan-techcombank-visa-platinum-kham-pha-viet-nam/_jcr_content/root/container/columncontainer_1827590779/column-1/image.coreimg.png/1718943768110/da-nang-67d9a1def6.png" alt="Bank Transfer">
+                                <span>Chuyển khoản ngân hàng</span>
+                            </div>
+                            <div class="payment-method" data-method="momo">
+                                <img src="https://scontent.fdad3-1.fna.fbcdn.net/v/t39.30808-6/464528701_8568695839853004_257677590149073074_n.png?_nc_cat=110&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeGpr_5ruD8SAlhPIjXzNC-fHJTacU1jh-0clNpxTWOH7T3u9YvbS_UnqK70fbSUEwXZ_AJ15epdsHp7UL__I_Ti&_nc_ohc=CIf1hQoq9ygQ7kNvwFrZjvD&_nc_oc=AdkxdoOg4wyPverwqcgJXQ4sr8ln6kYlwNylcGrqgN0BwVIVR80lDusHEX1FXI7UkJY&_nc_zt=23&_nc_ht=scontent.fdad3-1.fna&_nc_gid=ZGrpk3X6HU4YhWP2sPi2cw&oh=00_AfKccH7UasCLpD9kZCk37vDq-7VzbB_ZsT23-7qapPCV2A&oe=682BE217" alt="MoMo">
+                                <span>Ví MoMo</span>
+                            </div>
+                            <div class="payment-method" data-method="zalopay">
+                                <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-ZaloPay.png" alt="ZaloPay">
+                                <span>ZaloPay</span>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-details" id="creditCardDetails">
+                            <div class="mb-3">
+                                <label for="cardName" class="form-label">Tên chủ thẻ</label>
+                                <input type="text" class="form-control" id="cardName" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cardNumber" class="form-label">Số thẻ</label>
+                                <input type="text" class="form-control" id="cardNumber" placeholder="XXXX XXXX XXXX XXXX" required>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label for="expDate" class="form-label">Ngày hết hạn</label>
+                                    <input type="text" class="form-control" id="expDate" placeholder="MM/YY" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="cvv" class="form-label">CVV</label>
+                                    <input type="text" class="form-control" id="cvv" placeholder="XXX" required>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-details hidden" id="bankTransferDetails">
+                            <div class="alert alert-info">
+                                <p><strong>Thông tin chuyển khoản:</strong></p>
+                                <p>Ngân hàng: BIDV - Ngân hàng Đầu tư và Phát triển Việt Nam</p>
+                                <p>Số tài khoản: 1234567890</p>
+                                <p>Chủ tài khoản: CÔNG TY TNHH GIÁO DỤC XYZ</p>
+                                <p>Nội dung chuyển khoản: [TÊN HỌC VIÊN] - ĐĂNG KÝ KHÓA HỌC LỊCH SỬ</p>
+                            </div>
+                            <div class="mb-3">
+                                <label for="transferProof" class="form-label">Ảnh chụp biên lai/màn hình chuyển khoản</label>
+                                <input type="file" class="form-control" id="transferProof">
+                            </div>
+                        </div>
+                        
+                        <div class="payment-details hidden" id="momoDetails">
+                            <div class="alert alert-info text-center">
+                                <p><strong>Quét mã QR bằng ứng dụng MoMo để thanh toán</strong></p>
+                                <img src="/api/placeholder/200/200" alt="MoMo QR Code" class="img-fluid my-3">
+                                <p>Hoặc chuyển khoản đến số điện thoại: 0987654321</p>
+                                <p>Nội dung chuyển khoản: [TÊN HỌC VIÊN] - ĐĂNG KÝ KHÓA HỌC LỊCH SỬ</p>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-details hidden" id="zaloPayDetails">
+                            <div class="alert alert-info text-center">
+                                <p><strong>Quét mã QR bằng ứng dụng ZaloPay để thanh toán</strong></p>
+                                <img src="/api/placeholder/200/200" alt="ZaloPay QR Code" class="img-fluid my-3">
+                                <p>Hoặc chuyển khoản đến số điện thoại: 0987654321</p>
+                                <p>Nội dung chuyển khoản: [TÊN HỌC VIÊN] - ĐĂNG KÝ KHÓA HỌC LỊCH SỬ</p>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="button" class="btn btn-outline-secondary" id="backToPersonal">Quay lại</button>
+                            <button type="button" class="btn register-btn" id="processPayment">Thanh toán</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3: Confirmation -->
+<div id="confirmationForm" class="hidden">
+    <div class="text-center my-4">
+        <i class="fas fa-check-circle text-success" style="font-size: 60px;"></i>
+        <h3 class="mt-3">Đăng ký thành công!</h3>
+        <p>Cảm ơn bạn đã đăng ký khóa học Lịch sử.</p>
+        <p>Chúng tôi đã gửi email xác nhận và thông tin truy cập đến email của bạn.</p>
+    </div>
+    
+    <div class="card p-4 mb-4">
+        <h5 class="mb-3">Mã truy cập khóa học của bạn</h5>
+        <div class="access-code">LS-7854-9321</div>
+        <p class="text-muted mb-0">Vui lòng lưu giữ mã này để truy cập vào nội dung khóa học</p>
+    </div>
+    
+    <div class="row mb-4">
+        <div class="col-md-6 mb-3 mb-md-0">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5>Thông tin khóa học</h5>
+                    <p class="mb-1"><strong>Lớp:</strong> <span id="confirmationClassInfo">7</span></p>
+                    <p class="mb-1"><strong>Thời hạn:</strong> 12 tháng</p>
+                    <p class="mb-0"><strong>Hỗ trợ:</strong> 24/7</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5>Tài liệu đính kèm</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-file-pdf me-2 text-danger"></i> Tài liệu lý thuyết</li>
+                        <li><i class="fas fa-file-powerpoint me-2 text-warning"></i> Bài giảng</li>
+                        <li><i class="fas fa-file-alt me-2 text-primary"></i> Bài tập thực hành</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <p>Hãy nhấn nút bên dưới để truy cập vào nội dung khóa học của bạn ngay bây giờ.</p>
+        <button type="button" class="btn register-btn" id="accessCourseBtn">Truy cập khóa học ngay</button>
+    </div>
+    
+    <div id="confirmationLoadingScreen" class="text-center mt-4" style="display: none;">
+        <div class="loading">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <h4>Đang chuyển hướng...</h4>
+            <p>Vui lòng đợi trong giây lát</p>
+        </div>
+        <p class="redirect-message">Bạn sẽ được chuyển đến trang nội dung khóa học trong <span id="confirmationCountdown">5</span> giây</p>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Database using JSON
+        const courseData = {
+            1: {
+                learningPath: [
+                    { title: "Giới thiệu về lịch sử", description: "Khái niệm cơ bản về lịch sử và tầm quan trọng" },
+                    { title: "Các câu chuyện lịch sử đơn giản", description: "Những câu chuyện lịch sử dễ hiểu cho trẻ" },
+                    { title: "Các nhân vật lịch sử nổi tiếng", description: "Giới thiệu về các nhân vật quan trọng trong lịch sử" }
+                ],
+                materials: [
+                    { title: "Lý thuyết cơ bản", type: "PDF", icon: "fa-file-pdf" },
+                    { title: "Bài trắc nghiệm số 1", type: "QUIZ", icon: "fa-question-circle" },
+                    { title: "Hình ảnh minh họa", type: "IMAGE", icon: "fa-image" }
+                ]
+            },
+            7: {
+                learningPath: [
+                    { title: "Lịch sử thế giới trung cổ", description: "Châu Âu và Châu Á thời trung cổ" },
+                    { title: "Lịch sử Việt Nam thời Lý - Trần", description: "Thời kỳ hưng thịnh của dân tộc" },
+                    { title: "Văn hóa và nghệ thuật", description: "Phát triển văn hóa nghệ thuật qua các thời kỳ" }
+                ],
+                materials: [
+                    { title: "Tài liệu lịch sử thế giới", type: "PDF", icon: "fa-file-pdf" },
+                    { title: "Bài kiểm tra thời Lý - Trần", type: "QUIZ", icon: "fa-question-circle" },
+                    { title: "Hình ảnh nghệ thuật cổ", type: "IMAGE", icon: "fa-image" }
+                ]
+            }
+        };
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Course grid items
+            const gridItems = document.querySelectorAll('.course-grid-item');
+            gridItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    // Remove active class from all grid items
+                    gridItems.forEach(i => i.classList.remove('active'));
+                    // Add active class to clicked item
+                    this.classList.add('active');
+                });
+            });
+            
+            // Step 1 to Step 2 navigation
+            document.getElementById('nextToPayment').addEventListener('click', function() {
+                const fullName = document.getElementById('fullName').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const classSelect = document.getElementById('classSelect').value;
+                
+                if (fullName && email && phone && classSelect) {
+                    document.getElementById('personalInfoForm').classList.add('hidden');
+                    document.getElementById('paymentForm').classList.remove('hidden');
+                    
+                    // Update steps
+                    document.getElementById('step1').classList.add('completed');
+                    document.getElementById('step2').classList.add('active');
+                } else {
+                    alert('Vui lòng điền đầy đủ thông tin');
+                }
+            });
+            
+            // Back to Step 1
+            document.getElementById('backToPersonal').addEventListener('click', function() {
+                document.getElementById('paymentForm').classList.add('hidden');
+                document.getElementById('personalInfoForm').classList.remove('hidden');
+                
+                // Update steps
+                document.getElementById('step2').classList.remove('active');
+                document.getElementById('step1').classList.remove('completed');
+            });
+            
+            // Payment Methods
+            const paymentMethods = document.querySelectorAll('.payment-method');
+            const paymentDetails = document.querySelectorAll('.payment-details');
+            
+            paymentMethods.forEach(method => {
+                method.addEventListener('click', function() {
+                    // Remove active class from all methods
+                    paymentMethods.forEach(m => m.classList.remove('active'));
+                    // Add active class to clicked method
+                    this.classList.add('active');
+                    
+                    // Hide all payment details
+                    paymentDetails.forEach(detail => detail.classList.add('hidden'));
+                    
+                    // Show selected payment details
+                    const selectedMethod = this.getAttribute('data-method');
+                    if (selectedMethod === 'creditcard') {
+                        document.getElementById('creditCardDetails').classList.remove('hidden');
+                    } else if (selectedMethod === 'banktransfer') {
+                        document.getElementById('bankTransferDetails').classList.remove('hidden');
+                    } else if (selectedMethod === 'momo') {
+                        document.getElementById('momoDetails').classList.remove('hidden');
+                    } else if (selectedMethod === 'zalopay') {
+                        document.getElementById('zaloPayDetails').classList.remove('hidden');
+                    }
+                });
+            });
+            
+            // Process Payment
+            document.getElementById('processPayment').addEventListener('click', function() {
+                // Here you would normally validate payment information
+                // For demo purposes, we'll just show the confirmation
+                document.getElementById('paymentForm').classList.add('hidden');
+                document.getElementById('confirmationForm').classList.remove('hidden');
+                
+                // Update steps
+                document.getElementById('step2').classList.add('completed');
+                document.getElementById('step3').classList.add('active');
+            });
+            
+            // Reset modal on close
+            $('#registerModal').on('hidden.bs.modal', function () {
+                document.getElementById('personalInfoForm').classList.remove('hidden');
+                document.getElementById('paymentForm').classList.add('hidden');
+                document.getElementById('confirmationForm').classList.add('hidden');
+                
+                document.getElementById('step1').classList.remove('completed');
+                document.getElementById('step2').classList.remove('active');
+                document.getElementById('step2').classList.remove('completed');
+                document.getElementById('step3').classList.remove('active');
+                
+                document.getElementById('registrationForm').reset();
+                
+                // Reset payment methods
+                paymentMethods.forEach(m => m.classList.remove('active'));
+                paymentDetails.forEach(detail => detail.classList.add('hidden'));
+                document.getElementById('creditCardDetails').classList.remove('hidden');
+            });
+        });
+// Thêm vào phần JavaScript hiện có
+document.addEventListener('DOMContentLoaded', function() {
+    // Các sự kiện đã tồn tại...
+    
+    // Process Payment
+    document.getElementById('processPayment').addEventListener('click', function() {
+        // Cập nhật thông tin lớp học trong trang xác nhận
+        const selectedClass = document.getElementById('classSelect').value;
+        document.getElementById('confirmationClassInfo').textContent = selectedClass;
+        
+        document.getElementById('paymentForm').classList.add('hidden');
+        document.getElementById('confirmationForm').classList.remove('hidden');
+        
+        // Update steps
+        document.getElementById('step2').classList.add('completed');
+        document.getElementById('step3').classList.add('active');
+    });
+    
+    // Xử lý nút truy cập khóa học trong màn hình xác nhận
+    document.getElementById('accessCourseBtn').addEventListener('click', function() {
+        // Ẩn nội dung xác nhận và hiển thị màn hình loading
+        const confirmationContent = document.querySelector('#confirmationForm > div:not(#confirmationLoadingScreen)');
+        confirmationContent.style.display = 'none';
+        document.getElementById('confirmationLoadingScreen').style.display = 'block';
+        
+        // Countdown
+        let seconds = 5;
+        const countdownEl = document.getElementById('confirmationCountdown');
+        const interval = setInterval(function() {
+            seconds--;
+            countdownEl.textContent = seconds;
+            
+            if (seconds <= 0) {
+                clearInterval(interval);
+                // Redirect based on class
+                const selectedClass = document.getElementById('confirmationClassInfo').textContent;
+                redirectToClass(selectedClass);
+            }
+        }, 1000);
+    });
+    
+    // Function to redirect to appropriate class page
+    function redirectToClass(classNum) {
+        // Map class numbers to file paths
+        const classMappings = {
+            '1': 'lop1.html',
+            '2': 'lop2.html',
+            '4': 'lop4.html',
+            '5': 'lop5.html',
+            '6': 'lop6.html',
+            '7': 'lop7.html',
+            '8': 'lop8.html',
+            '9': 'lop9.html',
+            '11': 'lop11.html',
+            '12': 'lop12.html'
+        };
+        
+        const destination = classMappings[classNum] || 'khoahoc.html';
+        window.location.href = destination;
+    }
+});
+    </script>
+</body>
+</html>
